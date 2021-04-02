@@ -1,0 +1,17 @@
+# A * ensures that everything will be ignored.
+*
+
+# whitelist
+!*.yaml
+!.gitignore
+!*.md
+
+# Ignore folders.
+.storage
+.cloud
+.google.token
+
+# sensitive data
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml
