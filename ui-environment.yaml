@@ -1,0 +1,7 @@
+title: K9B
+
+views:
+  - !include lovelace-enviroment/home.yaml
+
+background: var(--background-image)
+

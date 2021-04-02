@@ -1,0 +1,8 @@
+title: K9B
+
+views:
+  - !include lovelace-system/server.yaml
+  - !include lovelace-system/certificates.yaml
+
+background: var(--background-image)
+

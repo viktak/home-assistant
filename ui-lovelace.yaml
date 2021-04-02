@@ -1,0 +1,14 @@
+title: K9B
+
+views:
+  - !include lovelace-public/home.yaml
+  - !include lovelace-public/livingroom.yaml
+  - !include lovelace-public/kitchen.yaml
+  - !include lovelace-public/bathroom.yaml
+  - !include lovelace-public/bedroom.yaml
+  - !include lovelace-public/office.yaml
+  - !include lovelace-public/guestbedroom.yaml
+  - !include lovelace-public/multimedia.yaml
+  - !include lovelace-public/building.yaml
+
+background: var(--background-image)

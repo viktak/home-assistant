@@ -1,0 +1,164 @@
+############################################################################################
+#   SONY_RM_ED022
+############################################################################################
+
+sony_rm_ed022_power:
+  initial_value: 0xa90
+sony_rm_ed022_input:
+  initial_value: 0xa50
+
+sony_rm_ed022_theatre:
+  initial_value: 0x3ee
+sony_rm_ed022_skip_back:
+  initial_value: 0x6ce9
+sony_rm_ed022_play:
+  initial_value: 0x2ce9
+sony_rm_ed022_skip_forward:
+  initial_value: 0x1ce9
+sony_rm_ed022_sync_menu:
+  initial_value: 0xd58
+sony_rm_ed022_previous_track:
+  initial_value: 0x1ee9
+sony_rm_ed022_stop:
+  initial_value: 0xce9
+sony_rm_ed022_next_track:
+  initial_value: 0x5ee9
+
+sony_rm_ed022_arrow_up:
+  initial_value: 0x2f0
+sony_rm_ed022_arrow_down:
+  initial_value: 0xaf0
+sony_rm_ed022_arrow_left:
+  initial_value: 0x2d0
+sony_rm_ed022_arrow_right:
+  initial_value: 0xcd0
+sony_rm_ed022_enter:
+  initial_value: 0xa70
+
+sony_rm_ed022_i_manual:
+  initial_value: 0x6f58
+sony_rm_ed022_scene:
+  initial_value: 0xf58
+sony_rm_ed022_aspect_ratio:
+  initial_value: 0x5e25
+sony_rm_ed022_digital_analog:
+  initial_value: 0x58ee
+sony_rm_ed022_favourites:
+  initial_value: 0x37ee
+sony_rm_ed022_guide:
+  initial_value: 0x6d25
+sony_rm_ed022_info:
+  initial_value: 0x5d0
+sony_rm_ed022_return:
+  initial_value: 0x62e9
+sony_rm_ed022_options:
+  initial_value: 0x36e9
+sony_rm_ed022_home:
+  initial_value: 0x70
+
+sony_rm_ed022_red:
+  initial_value: 0x52e9
+sony_rm_ed022_green:
+  initial_value: 0x32e9
+sony_rm_ed022_yellow:
+  initial_value: 0x72e9
+sony_rm_ed022_blue:
+  initial_value: 0x12e9
+
+sony_rm_ed022_numeric_1:
+  initial_value: 0x10
+sony_rm_ed022_numeric_2:
+  initial_value: 0x810
+sony_rm_ed022_numeric_3:
+  initial_value: 0x410
+sony_rm_ed022_numeric_4:
+  initial_value: 0xc10
+sony_rm_ed022_numeric_5:
+  initial_value: 0x210
+sony_rm_ed022_numeric_6:
+  initial_value: 0xa10
+sony_rm_ed022_numeric_7:
+  initial_value: 0x610
+sony_rm_ed022_numeric_8:
+  initial_value: 0xe10
+sony_rm_ed022_numeric_9:
+  initial_value: 0x110
+sony_rm_ed022_numeric_0:
+  initial_value: 0x910
+
+sony_rm_ed022_teletext:
+  initial_value: 0xfd0
+sony_rm_ed022_teletext2:
+  initial_value: 0xae9
+
+sony_rm_ed022_mute:
+  initial_value: 0x290
+
+sony_rm_ed022_volume_up:
+  initial_value: 0x490
+sony_rm_ed022_volume_down:
+  initial_value: 0xc90
+
+sony_rm_ed022_program_up:
+  initial_value: 0x90
+sony_rm_ed022_program_down:
+  initial_value: 0x890
+
+sony_rm_ed022_audio:
+  initial_value: 0xe90
+
+
+
+############################################################################################
+#   SONY_RM_LP211
+############################################################################################
+
+sony_rm_lp211_power:
+  initial_value: 0xa81
+
+sony_rm_lp211_source_video_1:
+  initial_value: 0x441
+sony_rm_lp211_source_video_2:
+  initial_value: 0x781
+sony_rm_lp211_source_video_3:
+  initial_value: 0x421
+sony_rm_lp211_source_dvd_ld:
+  initial_value: 0xbe1
+sony_rm_lp211_source_tv_sat:
+  initial_value: 0x561
+sony_rm_lp211_source_tape:
+  initial_value: 0xc41
+sony_rm_lp211_source_md_dat:
+  initial_value: 0x961
+sony_rm_lp211_source_cd_sacd:
+  initial_value: 0xa41
+sony_rm_lp211_source_tuner:
+  initial_value: 0x841
+sony_rm_lp211_source_phono:
+  initial_value: 0x41
+sony_rm_lp211_source_multi_chanel:
+  initial_value: 0x4e1
+
+sony_rm_lp211_previous_track:
+  initial_value: 0xcb92
+sony_rm_lp211_next_track:
+  initial_value: 0x8cb92
+sony_rm_lp211_skip_forward:
+  initial_value: 0xccb92
+sony_rm_lp211_skip_back:
+  initial_value: 0xccb92
+
+sony_rm_lp211_play:
+  initial_value: 0x4cb92
+sony_rm_lp211_pause:
+  initial_value: 0x9cb92
+sony_rm_lp211_stop:
+  initial_value: 0x1cb92
+
+sony_rm_lp211_volume_up:
+  initial_value: 0x481
+sony_rm_lp211_volume_down:
+  initial_value: 0xc81
+sony_rm_lp211_mute:
+  initial_value: 0x281
+

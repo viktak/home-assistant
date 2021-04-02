@@ -1,0 +1,38 @@
+- name: Home
+  latitude: !secret home_lat
+  longitude: !secret home_lon
+  radius: 100
+  icon: mdi:home-map-marker
+  passive: false
+
+
+# Gábor
+- name: Home - Gabor
+  latitude: !secret gabor_home_lat
+  longitude: !secret gabor_home_lon
+  radius: 200
+  icon: mdi:home
+  passive: false
+
+- name: Work - Gabor
+  latitude: !secret gabor_work_lat
+  longitude: !secret gabor_work_lon
+  radius: 200
+  icon: mdi:office-building
+  passive: false
+
+
+# Bernadett
+- name: Home - Bernadett
+  latitude: !secret bernadett_home_lat
+  longitude: !secret bernadett_home_lon
+  radius: 100
+  icon: mdi:home
+  passive: false
+
+- name: Lovi - Bernadett
+  latitude: !secret bernadett_lovi_lat
+  longitude: !secret bernadett_lovi_lon
+  radius: 200
+  icon: mdi:horse-human
+  passive: false

@@ -1,0 +1,43 @@
+# People
+person.viktor:
+  entity_picture: /local/images/D01_003701_1000_1000.png
+
+
+# Devices
+device_tracker.viktor_op3:
+  entity_picture: /local/images/D01_003701_1000_1000.png
+
+device_tracker.bernadett_mate10:
+  entity_picture: /local/images/D02_019858_1000_1000.png
+
+device_tracker.victoria_xiaomiredminote8:
+    entity_picture: /local/images/D03_000034_1000_1000.png
+  
+device_tracker.gabor_xiaomimi9lite:
+  entity_picture: /local/images/D03_009441_1000_1000.png
+
+# Cars
+device_tracker.tracker_302f42a4ae30_sim800:
+  entity_picture: /local/images/zzm1019.png
+
+    
+      
+switch.mosquitto_broker:
+  icon: mdi:cellphone-wireless
+
+switch.influxdb:
+  icon: mdi:database
+
+switch.grafana:
+  icon: mdi:chart-line-variant
+
+
+sensor.speedtest_download:
+  friendly_name: "Download"
+  icon: mdi:download
+sensor.speedtest_upload:
+  friendly_name: "Upload"
+  icon: mdi:upload
+sensor.speedtest_ping:
+  friendly_name: "Ping"
+  icon: mdi:timer

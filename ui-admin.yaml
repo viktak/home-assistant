@@ -1,0 +1,12 @@
+title: K9B
+
+views:
+  - !include lovelace-admin/system.yaml
+  - !include lovelace-admin/avstation.yaml
+  - !include lovelace-admin/map.yaml
+  - !include lovelace-admin/missing.yaml
+  - !include lovelace-admin/cameras.yaml
+  - !include lovelace-admin/dev.yaml
+
+background: var(--background-image)
+

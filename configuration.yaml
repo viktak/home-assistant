@@ -1,0 +1,169 @@
+#####################################################################################
+#    Home Assistant Main Configuration
+#####################################################################################
+
+homeassistant:
+  name: !secret ha_name
+  latitude: !secret home_lat
+  longitude: !secret home_lon
+  customize: !include customize.yaml
+  elevation: !secret home_elevation
+  unit_system: metric
+  time_zone: !secret timezone
+  external_url: !secret internal_url
+  internal_url: !secret internal_url
+  allowlist_external_dirs:
+    - "/config/"
+
+
+#####################################################################################
+#    Lovelace configuration
+#####################################################################################
+
+lovelace:
+  mode: yaml
+
+  resources:
+    - url: https://fonts.googleapis.com/css?family=Comfortaa&display=swap
+      type: css 
+                                 
+    - url: https://cdn.jsdelivr.net/gh/bramkragten/weather-card/dist/weather-card.min.js
+      type: module
+
+    - url: /hacsfiles/canvas-gauge-card/canvas-gauge-card.js
+      type: module
+
+    - url: /hacsfiles/gauge-card/gauge-card.js
+      type: module
+
+    - url: /hacsfiles/lovelace-slider-entity-row/slider-entity-row.js
+      type: module    
+
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+
+    - url: /hacsfiles/github-flexi-card/github-flexi-card.js
+      type: module
+
+    - url: /hacsfiles/kb-frosted-cards/kb-frosted-cards.js
+      type: module
+
+    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+      type: module
+
+    - url: /hacsfiles/list-card/list-card.js
+      type: module
+
+    - url: /hacsfiles/config-template-card/config-template-card.js
+      type: module
+
+    - url: /hacsfiles/toggle-control-button-row/toggle-control-button-row.js
+      type: module
+
+    - url: /hacsfiles/bar-card/bar-card.js
+      type: module
+                                                
+    - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+      type: module
+
+    - url: /hacsfiles/stack-in-card/stack-in-card.js
+      type: module
+
+    - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
+      type: module
+
+    - url: /hacsfiles/lovelace-card-mod/card-mod.js
+      type: module
+                                 
+                
+  dashboards:
+    lovelace-admin:
+      mode: yaml
+      filename: ui-admin.yaml
+      title: Admin
+      icon: mdi:head
+      show_in_sidebar: true
+      require_admin: true
+
+    lovelace-enviroment:
+      mode: yaml
+      filename: ui-environment.yaml
+      title: Environment
+      icon: mdi:bottle-tonic-plus
+      show_in_sidebar: true
+      require_admin: false
+
+    lovelace-system:
+      mode: yaml
+      filename: ui-system.yaml
+      title: System information
+      icon: mdi:list-status
+      show_in_sidebar: true
+      require_admin: false
+
+
+
+
+
+
+
+
+
+#####################################################################################
+#    Enables
+#####################################################################################
+
+default_config:
+
+wake_on_lan:
+
+sun:
+
+python_script:    
+
+shopping_list:
+
+stream:
+
+
+
+#####################################################################################
+#    INCLUDES
+#####################################################################################
+
+
+influxdb: !include databases/influxdb.yaml
+var: !include vars.yaml
+group: !include groups.yaml
+scene: !include scenes.yaml
+timer: !include timers.yaml
+zone: !include zones.yaml
+camera: !include cameras.yaml
+recorder: !include recorder.yaml
+frontend: !include integrations/frontend.yaml
+http: !include integrations/http.yaml
+speedtestdotnet: !include integrations/speedtest.yaml
+gdacs: !include integrations/gdacs.yaml
+telegram_bot: !include integrations/telegram.yaml
+pi_hole: !include integrations/pi-hole.yaml
+spotify: !include integrations/spotify.yaml
+logger: !include logger.yaml
+tts: !include integrations/tts.yaml
+mqtt: !include integrations/mqtt.yaml
+
+script: !include_dir_merge_named scripts
+alert: !include_dir_merge_named alerts
+
+light: !include_dir_merge_list entities/lights
+switch: !include_dir_merge_list entities/switches
+automation: !include_dir_merge_list automations
+sensor: !include_dir_merge_list entities/sensors
+binary_sensor: !include_dir_merge_list entities/binary-sensors
+shell_command: !include_dir_merge_list shell_commands
+notify: !include_dir_merge_list entities/notifiers
+
+
+input_boolean: !include_dir_merge_named entities/input_booleans
+input_select: !include_dir_merge_named entities/input_selects
+input_number: !include_dir_merge_named entities/input_numbers
+
