@@ -1,6 +1,6 @@
 ![GitHub](https://img.shields.io/github/license/viktak/home-assistant) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/viktak/home-assistant)
 
-# home-assistant
+# Home Assistant
 My Home Assistant configuration
 
 ## Contributing
