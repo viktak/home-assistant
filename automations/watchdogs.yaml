@@ -1,0 +1,98 @@
+#########################################################################################
+# WATCHDOG TIMERS
+#########################################################################################
+
+#########################################################################################
+# Pi-Hole
+#########################################################################################
+- alias: "Reset Pi-Hole watchdog timer"
+  trigger:
+    platform: mqtt
+    topic: "viktak/spiti/devices/pihole"
+  action:
+  - service: timer.start
+    data:
+      entity_id: timer.watchdog_pi_hole
+      duration: '00:15:00'
+
+- alias: "Send alert if Pi-Hole watchdog expires, then restart timer"
+  trigger:
+    platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.watchdog_pi_hole
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: Pi-Hole
+        message: 'No heartbeat!'
+    - service: timer.start
+      data:
+        entity_id: timer.watchdog_pi_hole
+        duration: '00:15:00'
+    
+#########################################################################################
+# House lights
+#########################################################################################
+- alias: "Send alert when House lights go offline"
+  trigger:
+  - entity_id: sensor.house_lights
+    platform: state
+  condition:
+    - condition: state
+      entity_id: "sensor.house_lights"
+      state: "offline"
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: Node offline
+        message: 'Lost connection with house lights'
+
+- alias: "Send alert when House lights go online"
+  trigger:
+  - entity_id: sensor.house_lights
+    platform: state
+  condition:
+    - condition: state
+      entity_id: "sensor.house_lights"
+      state: "online"
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: Node online
+        message: 'Connection with house lights is OK.'
+
+
+
+
+
+#########################################################################################
+######################## TEST ###########################################################
+#########################################################################################
+- alias: "Send alert when XXX goes offline"
+  trigger:
+  - entity_id: sensor.esp_development_203
+    platform: state
+  condition:
+    - condition: state
+      entity_id: "sensor.esp_development_203"
+      state: "offline"
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: Node offline
+        message: 'Lost connection with ESP-203'
+
+- alias: "Send alert when XXX goes online"
+  trigger:
+  - entity_id: sensor.esp_development_203
+    platform: state
+  condition:
+    - condition: state
+      entity_id: "sensor.esp_development_203"
+      state: "online"
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: Node online
+        message: 'Found connection with ESP-203'

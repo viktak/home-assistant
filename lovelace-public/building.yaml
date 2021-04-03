@@ -1,0 +1,20 @@
+title: Building
+icon: mdi:domain
+cards:
+  - type: entities
+    title: Lights
+    show_header_toggle: false
+    entities:
+      - entity: switch.staircase_light
+        name: Staircase
+
+      # - entity: switch.entrance_light_read_only
+      #   name: Entrance
+
+      - type: custom:toggle-control-button-row
+        name: Entrance
+        customTheme: true
+        entity: switch.entrance_light_read_only
+        isOnColor: 'orange'
+        isOffColor: 'grey'
+

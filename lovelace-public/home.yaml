@@ -1,0 +1,312 @@
+title:  Home
+icon: mdi:home
+cards:
+######################################
+# Problems
+######################################
+  - type: entity-filter
+    show_empty: false
+    entities:
+      - entity: sensor.home_assistant_ssl_certificate
+    state_filter:
+      - operator: "<"
+        value: "30"
+    card:
+      show_state: false
+      title: Expiring certificates
+ 
+  - type: entity-filter
+    show_empty: false
+    entities:
+      - entity: sensor.pihole
+      - entity: sensor.home_assistant_ssl_certificate
+      - entity: sensor.hall_sensor_living_room
+      - entity: sensor.hall_sensor_bedroom
+      - entity: sensor.hall_sensor_office
+      - entity: sensor.hall_sensor_guest_bedroom
+      - entity: sensor.fws
+
+      - entity: sensor.pir_viktors_office
+        name: Motion sensor in Viktor's office
+        icon: mdi:run
+      - entity: sensor.pir_bedroom
+        name: Motion sensor in bedroom
+        icon: mdi:run
+      - entity: sensor.pir_livingroom
+        name: Motion sensor in living room
+        icon: mdi:run
+      - entity: sensor.pir_guest_bedroom
+        name: Motion sensor in guest bedroom
+        icon: mdi:run
+
+      - entity: sensor.house_lights
+      # - entity: switch.kalorifer_sonoff_basic
+      - entity: switch.staircase_light
+      - entity: switch.office_boiler
+      # - entity: sensor.washing_machine
+
+
+      # - entity: switch.living_room_ceiling_lights_1
+      # - entity: switch.living_room_ceiling_lights_2
+      # - entity: switch.living_room_ceiling_lights_3
+      # - entity: switch.living_room_ceiling_lights_4
+
+      - entity: light.ceiling_light_in_viktor_s_office
+      - entity: light.ceiling_light_in_bedroom
+      - entity: light.ceiling_light_in_the_guest_bedroom
+
+      - entity: sensor.bedroom_window
+      - entity: sensor.office_door
+
+    state_filter:
+      - "unknown"
+      - "offline"
+      - "unavailable"
+    card:
+      title: Problems
+      show_header_toggle: false
+      show_state: false
+
+
+######################################
+# Problems
+######################################
+
+
+
+
+# Weather  
+  - type: custom:weather-card
+    entity: weather.spiti
+    name: Nikaia
+    current: true
+    details: true
+    forecast: true
+
+
+# Who is home?
+  - type: entity-filter
+    show_empty: false
+    entities:
+      - entity: device_tracker.victoria_xiaomiredminote8
+      - entity: device_tracker.viktor_op3
+    state_filter:
+      - home
+    card:
+      title: Who is home?        
+      type: glance
+      show_state: false
+      show_name: false
+
+# Lights on
+  - type: entity-filter
+    show_empty: false
+    entities:
+      - entity: switch.living_room_ceiling_lights_1
+      - entity: switch.living_room_ceiling_lights_2
+      - entity: switch.living_room_ceiling_lights_3
+      - entity: switch.living_room_ceiling_lights_4
+      - entity: light.ceiling_light_in_viktor_s_office
+      - entity: light.ceiling_light_in_bedroom
+      - entity: light.ceiling_light_in_guest_bedroom
+      - entity: switch.staircase_light
+      - entity: switch.entrance_light
+    state_filter:
+      - "on"
+    card:
+      title: Lights on
+      show_state: false
+
+# A/C on
+  - type: entity-filter      
+    show_empty: false
+    entities:
+      - entity: timer.hvac_viktors_office
+        name: Viktor's office
+        icon: mdi:air-conditioner
+    state_filter:
+      - "active"
+    card:
+      title: A/C on
+      show_state: false
+
+# Open windows
+  - type: entity-filter
+    show_empty: false
+    entities:
+      - entity: sensor.bedroom_door_window
+        name: Bedroom
+    state_filter:
+      - "open"
+    card:
+      type: glance
+      title: Open windows
+      show_state: false
+
+
+# Low batteries
+  - type: entity-filter
+    show_empty: false
+    entities:
+      - entity: sensor.bedroom_window_battery
+        name: Bedroom window sensor
+      - entity: sensor.office_door_battery
+        name: Office door sensor
+    state_filter:
+      - "low"
+    card:
+      type: glance
+      title: Low batteries
+      show_state: false
+
+
+# Boilers
+  - type: entity-filter
+    show_empty: false
+    entities:
+      - entity: switch.office_boiler
+        name: Office
+        show_last_changed: true
+        tap_action:
+          action: toggle
+    state_filter:
+      - "on"
+    card:
+      type: glance
+      title: Boilers
+      show_state: false
+
+
+# Temperatures
+  - type: glance
+    title: Temperatures
+    entities:
+      - entity: sensor.balcony_temperature
+        name: Balcony
+      - entity: sensor.living_room_temperature
+        name: Living room
+      - entity: sensor.bedroom_temperature
+        name: Bedroom
+      - entity: sensor.office_temperature
+        name: Office
+      - entity: sensor.guest_bedroom_temperature
+        name: Guest bedroom
+
+# Motion sensors
+  - type: entity-filter
+    show_empty: false
+    entities:
+      - entity: sensor.pir_viktors_office
+        name: Viktor's office
+        icon: mdi:run
+      - entity: sensor.pir_bedroom
+        name: Bedroom
+        icon: mdi:run
+      - entity: sensor.pir_livingroom
+        name: Living room
+        icon: mdi:run
+      - entity: sensor.pir_guest_bedroom
+        name: Guest bedroom
+        icon: mdi:run
+    state_filter:
+      - "on"
+    card:
+      title: Motion sensors        
+      type: glance
+      show_state: false
+
+# Random lights
+  - type: entities
+    title: Random lights
+    show_header_toggle: true
+    entities:
+      - entity: input_boolean.rl_bedroom
+        name: Bedroom
+      - entity: input_boolean.rl_viktor_s_office
+        name: Viktor's office
+      - entity: input_boolean.rl_guest_bedroom
+        name: Guest bedroom
+
+
+# Upcoming buses
+  - type: entities
+    title: Upcoming buses to town
+    show_header_toggle: false
+    entities:
+      - entity: sensor.814_to_peiraias
+        name: 814 to Peiraias
+      - entity: sensor.824_to_peiraias
+        name: 824 to Peiraias
+      - entity: sensor.825_to_peiraias
+        name: 825 to Peiraias
+
+      - entity: sensor.750_to_egaleo
+        name: 750 to Egaleo
+      - entity: sensor.852_to_egaleo
+        name: 852 to Egaleo
+
+      - entity: sensor.800_to_metro_nikaias
+        name: 800 to Metro Nikaias
+      - entity: sensor.846_to_metro_nikaias
+        name: 846 to Metro Nikaias
+
+# Space launches
+  - type: entities
+    title: Space launches
+    show_header_toggle: false
+    entities:
+      - entity: sensor.next_launch
+        name: Next launch
+
+# Earthquakes
+  - type: markdown
+    title: Recent Earthquakes
+    content: |
+      {% if state_attr('sensor.earthquakes','earthquakes') | length > 0 -%}
+        {% for quake in state_attr('sensor.earthquakes','earthquakes') %}
+        {{ quake.magnitude }}: [{{ quake.title }}]({{ quake.link }}) {{ quake.distance }}km
+        {{ quake.time.strftime("%b %d %X")}}
+        {% endfor %}
+      {% else %}
+        No significant earthquakes ( > M4.0 ) have occured in the past 6 hours.
+      {%- endif %}
+
+# Viruses
+  - type: vertical-stack
+    cards:
+    - type: glance
+      title: "CoViD-19 in Greece"
+      entities:
+        - entity: sensor.greece_coronavirus_current
+          name: "Current"
+        - entity: sensor.greece_coronavirus_confirmed
+          name: "Confirmed"
+        - entity: sensor.greece_coronavirus_recovered
+          name: "Recovered"
+        - entity: sensor.greece_coronavirus_deaths
+          name: "Deaths"
+
+    - type: glance
+      title: "CoViD-19 in Hungary"
+      entities:
+        - entity: sensor.hungary_coronavirus_current
+          name: "Current"
+        - entity: sensor.hungary_coronavirus_confirmed
+          name: "Confirmed"
+        - entity: sensor.hungary_coronavirus_recovered
+          name: "Recovered"
+        - entity: sensor.hungary_coronavirus_deaths
+          name: "Deaths"
+
+    - type: glance
+      title: "CoViD-19 Worldwide"
+      entities:
+        - entity: sensor.worldwide_coronavirus_current
+          name: "Current"
+        - entity: sensor.worldwide_coronavirus_confirmed
+          name: "Confirmed"
+        - entity: sensor.worldwide_coronavirus_recovered
+          name: "Recovered"
+        - entity: sensor.worldwide_coronavirus_deaths
+          name: "Deaths"
+

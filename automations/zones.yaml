@@ -1,0 +1,116 @@
+#########################################################################################
+# Zónapörkölt
+#########################################################################################
+
+#########################################################################################
+# Gábor
+#########################################################################################
+- alias: 'Gabor arrived  home'
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.gabor_xiaomimi9lite
+      zone: zone.home_gabor
+      event: enter
+  action:
+    - service: notify.telegram_viktor
+      data_template:
+        title: Gábor moved
+        message: Gábor just arrived home.
+
+
+- alias: 'Gabor left from home'
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.gabor_xiaomimi9lite
+      zone: zone.home_gabor
+      event: leave
+  action:
+    - service: notify.telegram_viktor
+      data_template:
+        title: Gábor moved
+        message: Gábor just left from home.
+
+
+- alias: 'Gabor arrived to work'
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.gabor_xiaomimi9lite
+      zone: zone.work_gabor
+      event: enter
+  action:
+    - service: notify.telegram_viktor
+      data_template:
+        title: Gábor moved
+        message: Gábor just arrived to work.
+
+
+- alias: 'Gabor left from work'
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.gabor_xiaomimi9lite
+      zone: zone.work_gabor
+      event: leave
+  action:
+    - service: notify.telegram_viktor
+      data_template:
+        title: Gábor moved
+        message: Gábor just left from work.
+
+
+
+
+#########################################################################################
+# Bernadett
+#########################################################################################
+- alias: 'Bernadett arrived  home'
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.bernadett_mate10
+      zone: zone.home_bernadett
+      event: enter
+  action:
+    - service: notify.telegram_viktor
+      data_template:
+        title: Bernadett moved
+        message: Bernadett just arrived home.
+
+
+- alias: 'Bernadett left from home'
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.bernadett_mate10
+      zone: zone.home_bernadett
+      event: leave
+  action:
+    - service: notify.telegram_viktor
+      data_template:
+        title: Bernadett moved
+        message: Bernadett just left from home.
+
+
+- alias: 'Bernadett arrived to Lovi'
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.bernadett_mate10
+      zone: zone.lovi_bernadett
+      event: enter
+  action:
+    - service: notify.telegram_viktor
+      data_template:
+        title: Bernadett moved
+        message: Bernadett just arrived to Lovi.
+
+
+- alias: 'Bernadett left from Lovi'
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.bernadett_mate10
+      zone: zone.lovi_bernadett
+      event: leave
+  action:
+    - service: notify.telegram_viktor
+      data_template:
+        title: Bernadett moved
+        message: Bernadett just left from Lovi.
+
+

@@ -1,0 +1,6 @@
+- platform: broadcast
+  api_key: !secret telegram_api_key
+  allowed_chat_ids:
+    - !secret telegram_client_id_viktor
+    - !secret telegram_client_id_victoria
+    - !secret telegram_client_id_hungary

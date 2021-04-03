@@ -1,0 +1,12 @@
+title: Map
+icon: mdi:map
+panel: true
+cards:
+  - type: map
+    entities:
+      - entity: device_tracker.victoria_xiaomiredminote8
+        name: Vic
+      - entity: device_tracker.viktor_op3
+        name: Vik
+      - entity: device_tracker.bernadett_galaxya5
+        name: Bernadett

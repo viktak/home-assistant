@@ -1,0 +1,41 @@
+#########################################################################################
+# Pi-Hole
+#########################################################################################
+
+- alias: "Pi-Hole low disk space"
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.pihole_disk_free_space
+      value_template: "{{ states('sensor.pihole_disk_free_space') | replace(',','') | int }}"
+      below: 500000
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.low_disk_space_pi_hole
+  action:
+    - service: notify.telegram_viktor
+      data_template:
+        title: "Pi-Hole Warning"
+        message: "Free disk space amount is dangerously low: {{ states('sensor.pihole_disk_free_space_formatted') }} bytes."
+    - service: timer.start
+      data:
+        entity_id: timer.low_disk_space_pi_hole
+        duration: '00:15:00'
+
+
+
+- alias: "Pi-Hole sufficient disk space"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.pihole_disk_free_space
+    value_template: "{{ states('sensor.pihole_disk_free_space') | replace(',','') | int }}"
+    above: 500000
+  action:
+    - service: notify.telegram_viktor
+      data_template:
+        title: "Pi-Hole Information"
+        message: "Free disk space amount is sufficient: {{ states('sensor.pihole_disk_free_space_formatted') }} bytes."
+    - service: timer.cancel
+      data:
+        entity_id: timer.low_disk_space_pi_hole
+

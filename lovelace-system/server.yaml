@@ -1,0 +1,198 @@
+title: System
+icon: mdi:chart-line
+cards:
+
+###################################################################################
+#   Server
+###################################################################################
+
+  - type: vertical-stack
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.last_boot
+            name: Last boot
+            icon: mdi:clock
+          - entity: sensor.time_online
+            name: Home Assistant online
+            icon: mdi:timer-sand
+          - entity: sensor.disk_free
+            name: Free disk space
+            icon: mdi:file-swap
+      
+      - type: custom:bar-card
+        mode: horizontal
+        positions:
+          indicator: outside
+        columns: 1
+        entities:
+          - entity: sensor.processor_use_percent
+            name: CPU
+          - entity: sensor.memory_use_percent
+            name: RAM
+          - entity: sensor.disk_use_percent
+            name: Disk
+          - entity: sensor.swap_use_percent
+            name: Swap
+
+
+###################################################################################
+#   Home Assistant
+###################################################################################
+
+  - type: vertical-stack
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.python_version
+            name: Python
+            icon: mdi:language-python
+
+          - type: divider
+
+          - entity: sensor.ha_installed_version
+            name: Core
+            icon: mdi:home-assistant
+            type: custom:multiple-entity-row
+            show_state: false
+            entities:
+              - entity: sensor.ha_installed_version
+                name: Installed
+              - entity: sensor.core_version_latest
+                name: Latest
+                tap_action:
+                  action:  navigate
+                  navigation_path :  /hassio/dashboard
+            card_mod:
+            style: |
+              {% if states('binary_sensor.updater') == "on" %}
+              div.entity:nth-child(2) > div:nth-child(2) {
+                color: yellow;
+              }
+              {% endif %}
+                    
+
+          - entity: sensor.supervisor_updates
+            name: Supervisor
+            icon: mdi:home-assistant
+            type: custom:multiple-entity-row
+            show_state: false
+            entities:
+              - entity: sensor.supervisor_current_version
+                name: Installed
+              - entity: sensor.supervisor_latest_version
+                name: Latest
+                tap_action:
+                  action:  navigate
+                  navigation_path :  /hassio/dashboard
+            card_mod:
+            style: |
+              {% if states('binary_sensor.updater_supervisor') == "on" %}
+              div.entity:nth-child(2) > div:nth-child(2) {
+                color: yellow;
+              }
+              {% endif %}
+
+          - entity: sensor.addons_number_of_updates_available
+            name: Add-ons
+            icon: mdi:puzzle
+            card_mod:
+              style: |
+                {% if states('binary_sensor.updater_addons') == "on" %}
+                  hui-generic-entity-row div.text-content {
+                  color: yellow;
+                }
+                {% endif %}
+            tap_action:
+              action:  navigate
+              navigation_path :  /hassio/store
+          - entity: sensor.hacs_number_of_updates_available
+            name: HACS
+            icon: mdi:contacts
+            card_mod:
+              style: |
+                {% if states('binary_sensor.updater_hacs') == "on" %}
+                  hui-generic-entity-row div.text-content {
+                  color: yellow;
+                }
+                {% endif %}
+            tap_action:
+              action:  navigate
+              navigation_path :  /hacs/entry
+
+
+          - type: divider
+
+          - entity: sensor.home_assistant_v2_db
+            name: Database
+            icon: mdi:database
+
+          - entity: sensor.home_assistant_log
+            name: Log
+            icon: mdi:history
+
+
+###################################################################################
+#   Internet
+###################################################################################
+
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.speedtest_ping
+            height: 20
+            line_width: 2
+            font_size: 70
+            hours_to_show: 24
+            points_per_hour: 2.1
+            hour24: true
+            show:
+              extrema: true
+              fill: true
+              graph: bar
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.speedtest_download
+            height: 50
+            line_width: 2
+            font_size: 70
+            hours_to_show: 24
+            points_per_hour: 2.1
+            show:
+              extrema: true
+              fill: true
+            hour24: true
+            color_thresholds:
+              - value: 20
+                color: "#bf4040"
+            hold_action:
+              action: 
+                service: persistent_notification.create
+                data:
+                  title: "Internet speed"
+                  message: "Checking your internet speed now. The values will be updated shortly."
+
+
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.speedtest_upload
+            height: 50
+            line_width: 2
+            font_size: 70
+            hours_to_show: 24
+            points_per_hour: 2.1
+            hour24: true
+            show:
+              extrema: true
+              fill: true
+            color_thresholds:
+              - value: 5
+                color: "#bf4040"
+  
+

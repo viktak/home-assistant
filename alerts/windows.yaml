@@ -1,0 +1,18 @@
+#########################################################################################
+#   Bedroom window
+#########################################################################################
+
+bedroom_window:
+  name: Bedroom window is open for too long
+  entity_id: sensor.bedroom_window
+  state: 'open'
+  can_acknowledge: false
+  repeat: 
+    - 15
+    - 5
+  skip_first: true
+  title: 'Window left open for too long'
+  message: "The window in the bedroom has been left open for too long. Please close it now."
+  notifiers:
+    - telegram_viktor
+    - telegram_victoria

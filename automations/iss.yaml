@@ -1,0 +1,34 @@
+#########################################################################################
+# ISS
+#########################################################################################
+- alias: 'ISS enters view'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.iss
+      to:  'on'
+  action:
+    - service: notify.telegram_viktor
+      data_template:
+        title: ISS In view
+        message: The Internation Space Station with {{state_attr("binary_sensor.iss", "number_of_people_in_space")}} people on board is now visible from the rooftop!
+    - service: notify.telegram_victoria
+      data_template:
+        title: ISS In view
+        message: The Internation Space Station with {{state_attr("binary_sensor.iss", "number_of_people_in_space")}} people on board is now visible from the rooftop!
+
+- alias: 'ISS exits view'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.iss
+      from:  'on'
+      to:  'off'
+  action:
+    - service: notify.telegram_viktor
+      data_template:
+        title: ISS Left
+        message: The Internation Space Station has just left Nikaia!
+    - service: notify.telegram_victoria
+      data_template:
+        title: ISS Left
+        message: The Internation Space Station has just left Nikaia!
+

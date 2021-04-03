@@ -1,0 +1,513 @@
+title: Living room
+icon: mdi:sofa
+cards:
+  - type: entities
+    title: Climate
+    show_header_toggle: false
+    entities:
+      - entity: sensor.living_room_temperature
+        name: Temperature
+
+
+
+  # - type: entities
+  #   title:  Lights
+  #   entities:
+  #     - entity: switch.living_room_ceiling_lights_1
+  #       name: Front - weak
+  #     - entity: switch.living_room_ceiling_lights_2
+  #       name: Front - strong
+
+  #     - entity: switch.living_room_ceiling_lights_3
+  #       name: Back - weak
+  #     - entity: switch.living_room_ceiling_lights_4
+  #       name: Back - strong
+
+
+
+  # - type: media-control
+  #   entity: media_player.kodi_in_living_room
+
+  - type: entities
+    title: Motion sensors
+    show_header_toggle: false
+    entities:
+      - entity: sensor.pir_livingroom
+        name: Motion sensor
+        icon: mdi:run
+
+
+  - type: vertical-stack
+    title: A/V equipment
+    cards:
+      - type: horizontal-stack  #row 1
+        cards:
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_power
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_POWER"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_input
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_INPUT"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_aspect_ratio
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_ASPECT_RATIO"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_lp211_power
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_LP211": "SONY_RM_LP211_POWER"}'
+
+      - type: horizontal-stack  #row 2
+        cards:
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_guide
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_GUIDE"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_arrow_up
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_ARROW_UP"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_info
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_INFO"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_lp211_source_tv_sat
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_LP211": "SONY_RM_LP211_SOURCE_TV_SAT"}'
+
+      - type: horizontal-stack  #row 3
+        cards:
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_arrow_left
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_ARROW_LEFT"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_enter
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_ENTER"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_arrow_right
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_ARROW_RIGHT"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_lp211_source_cd_sacd
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_LP211": "SONY_RM_LP211_SOURCE_CD_SACD"}'
+
+      - type: horizontal-stack  #row 4
+        cards:
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_return
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_RETURN"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_arrow_down
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_ARROW_DOWN"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_options
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_OPTIONS"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_lp211_source_tuner
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_LP211": "SONY_RM_LP211_SOURCE_TUNER"}'
+
+      - type: horizontal-stack  #row 5
+        cards:
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_red
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_RED"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_green
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_GREEN"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_yellow
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_YELLOW"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_blue
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_BLUE"}'
+
+      - type: horizontal-stack  #row 6
+        cards:
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_numeric_1
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_NUMERIC_1"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_numeric_2
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_NUMERIC_2"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_numeric_3
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_NUMERIC_3"}'
+          - type: "custom:button-card"
+            color_type: blank-card
+            aspect_ratio: "1/1"
+
+      - type: horizontal-stack  #row 7
+        cards:
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_numeric_4
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_NUMERIC_4"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_numeric_5
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_NUMERIC_5"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_numeric_6
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_NUMERIC_6"}'
+          - type: "custom:button-card"
+            color_type: blank-card
+            aspect_ratio: "1/1"
+
+      - type: horizontal-stack  #row 8
+        cards:
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_numeric_7
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_NUMERIC_7"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_numeric_8
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_NUMERIC_8"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_numeric_9
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_NUMERIC_9"}'
+          - type: "custom:button-card"
+            color_type: blank-card
+            aspect_ratio: "1/1"
+
+      - type: horizontal-stack  #row 9
+        cards:
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_teletext
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_TELETEXT"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_numeric_0
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_NUMERIC_0"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_teletext2
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_TELETEXT2"}'
+          - type: "custom:button-card"
+            color_type: blank-card
+            aspect_ratio: "1/1"
+
+      - type: horizontal-stack  #row 10
+        cards:
+          - type: "custom:button-card"
+            color_type: blank-card
+            aspect_ratio: "1/1"
+          - type: "custom:button-card"
+            entity: switch.sony_rm_lp211_mute
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_LP211": "SONY_RM_LP211_MUTE"}'
+          - type: "custom:button-card"
+            color_type: blank-card
+            aspect_ratio: "1/1"
+
+
+
+
+
+      - type: horizontal-stack  #row 11
+        cards:
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_program_up
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_PROGRAM_UP"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_lp211_volume_up
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_LP211": "SONY_RM_LP211_VOLUME_UP"}'
+
+      - type: horizontal-stack  #row 12
+        cards:
+          - type: "custom:button-card"
+            entity: switch.sony_rm_ed022_program_down
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_ED022": "SONY_RM_ED022_PROGRAM_DOWN"}'
+          - type: "custom:button-card"
+            entity: switch.sony_rm_lp211_volume_down
+            show_name: false
+            color: auto
+            aspect_ratio: "1/1"
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "viktak/spiti/livingroomir/cmnd"
+                payload: '{"SONY_RM_LP211": "SONY_RM_LP211_VOLUME_DOWN"}'
+
+
+
+
+
+
+

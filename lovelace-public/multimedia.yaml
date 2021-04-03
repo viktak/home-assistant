@@ -1,0 +1,7 @@
+title: Multimedia
+icon: mdi:kodi
+panel: true
+cards:
+  - type: iframe
+    url: http://mc2:8080
+    aspect_ratio: 100%

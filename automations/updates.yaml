@@ -1,0 +1,14 @@
+#########################################################################################
+# Home Assistant update is available
+#########################################################################################
+- alias: Check configuration against the new update
+  description: Starts the check config addon when an update becomes available
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.updater
+      to: 'on'
+  condition: []
+  action:
+    service: hassio.addon_start
+    data:
+      addon: core_check_config

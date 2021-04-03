@@ -1,0 +1,61 @@
+#########################################################################################
+# Bedroom window sensor
+#########################################################################################
+
+
+- alias: "Medium battery - Bedroom window sensor"
+  trigger:
+  - entity_id: sensor.bedroom_window_battery
+    platform: state
+    to: "medium"
+  action:
+    - service: telegram_bot.send_message
+      data:
+        title: "Medium battery"
+        message: "The battery in the bedroom window sensor is getting weak. Replace it soon."
+
+
+
+
+- alias: "Low battery - Bedroom window sensor"
+  trigger:
+  - entity_id: sensor.bedroom_window_battery
+    platform: state
+    to: "low"
+  action:
+    - service: telegram_bot.send_message
+      data:
+        title: "Low battery"
+        message: "The battery in the bedroom window sensor is low. Replace it now."
+
+
+#########################################################################################
+# Office door sensor
+#########################################################################################
+
+
+- alias: "Medium battery - Office door sensor"
+  trigger:
+  - entity_id: sensor.office_door_battery
+    platform: state
+    to: "medium"
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: "Medium battery"
+        message: "The battery in the office door sensor is getting weak. Replace it soon."
+
+
+
+- alias: "Low battery - Office door sensor"
+  trigger:
+  - entity_id: sensor.office_door_battery
+    platform: state
+    to: "low"
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: "Low battery"
+        message: "The battery in the office door sensor is low. Replace it now."
+
+

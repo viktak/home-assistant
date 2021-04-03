@@ -1,0 +1,62 @@
+#####################################################################################
+#   Own domains
+#####################################################################################
+
+# Certificate has 30 days left
+certificate_viktak_com_30:
+  name: viktak.com certificate expires in less than 30 days
+  entity_id: binary_sensor.certificate_viktak_com_less_than_30_days
+  state: 'on'
+  can_acknowledge: false
+  repeat: 
+    - 1440
+  title: 'Certificate expiry notice'
+  message: Certificate for domain {{ state_attr('binary_sensor.certificate_viktak_com_less_than_30_days', 'domain_name') }} is expiring in {{ states('sensor.certificate_viktak_com') }} day(s).
+  notifiers:
+    - telegram_viktor
+#    - browser_notification
+
+certificate_andthatshowitsdone_viktak_com_30:
+  name: andthatshowitsdone.viktak.com certificate expires in less than 30 days
+  entity_id: binary_sensor.certificate_andthatshowitsdone_viktak_com_less_than_30_days
+  state: 'on'
+  can_acknowledge: false
+  repeat: 
+    - 1440
+  title: 'Certificate expiry notice'
+  message: Certificate for domain {{ state_attr('binary_sensor.certificate_andthatshowitsdone_viktak_com_less_than_30_days', 'domain_name') }} is expiring in {{ states('sensor.certificate_andthatshowitsdone_viktak_com') }} day(s).
+  notifiers:
+    - telegram_viktor
+#    - browser_notification
+
+certificate_diy_viktak_com_30:
+  name: diy.viktak.com certificate expires in less than 30 days
+  entity_id: binary_sensor.certificate_diy_viktak_com_less_than_30_days
+  state: 'on'
+  can_acknowledge: false
+  repeat: 
+    - 1440
+  title: 'Certificate expiry notice'
+  message: Certificate for domain {{ state_attr('binary_sensor.certificate_diy_viktak_com_less_than_30_days', 'domain_name') }} is expiring in {{ states('sensor.certificate_diy_viktak_com') }} day(s).
+  notifiers:
+    - telegram_viktor
+#    - browser_notification
+
+
+
+#####################################################################################
+#   Own domains
+#####################################################################################
+
+certificate_radionefeli_com_30:
+  name: radionefeli.com certificate expires in less than 30 days
+  entity_id: binary_sensor.certificate_radionefeli_com_less_than_30_days
+  state: 'on'
+  can_acknowledge: false
+  repeat: 
+    - 1440
+  title: 'Certificate expiry notice'
+  message: Certificate for domain {{ state_attr('binary_sensor.certificate_radionefeli_com_less_than_30_days', 'domain_name') }} is expiring in {{ states('sensor.certificate_radionefeli_com') }} day(s).
+  notifiers:
+    - telegram_viktor
+#    - browser_notification

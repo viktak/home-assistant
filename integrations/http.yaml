@@ -1,0 +1,3 @@
+server_port: 8123
+cors_allowed_origins:
+- !secret custom_dashboard_url

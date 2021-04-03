@@ -1,0 +1,25 @@
+title: Guest bedroom
+icon: mdi:bed-empty
+cards:
+  - type: entities
+    title: Climate
+    show_header_toggle: false
+    entities:
+      - entity: sensor.guest_bedroom_temperature
+        name: Temperature
+
+
+  - type: entities
+    title:  Lights
+    entities:
+      - entity: light.ceiling_light_in_guest_bedroom
+        name: Ceiling light
+
+  - type: entities
+    title: Motion sensors
+    show_header_toggle: false
+    entities:
+      - entity: sensor.pir_guest_bedroom
+        name: Motion sensor
+        icon: mdi:run
+    

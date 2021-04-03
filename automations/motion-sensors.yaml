@@ -1,0 +1,76 @@
+#########################################################################################
+# Motion sensors
+#########################################################################################
+- alias: Motion in Viktor's office
+  description: ''
+  trigger:
+  - entity_id: sensor.pir_viktors_office
+    platform: state
+    to: "on"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.notify_motion_sensors_upstairs
+        state: "on"
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: Intruder alert
+        message: '!!! Intruder in Viktor''s office !!!'
+
+- alias: Motion in guest bedroom
+  description: ''
+  trigger:
+  - entity_id: sensor.pir_guest_bedroom
+    platform: state
+    to: "on"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.notify_motion_sensors_upstairs
+        state: "on"
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: Intruder alert
+        message: '!!! Intruder in guest bedroom !!!'
+
+
+- alias: Motion in bedroom
+  description: ''
+  trigger:
+  - entity_id: sensor.pir_bedroom
+    platform: state
+    to: "on"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.notify_motion_sensors_downstairs
+        state: "on"
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: Intruder alert
+        message: '!!! Intruder in bedroom !!!'
+
+- alias: Motion in living room
+  description: ''
+  trigger:
+  - entity_id: sensor.pir_livingroom
+    platform: state
+    to: "on"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.notify_motion_sensors_downstairs
+        state: "on"
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: Intruder alert
+        message: '!!! Intruder in living room !!!'
+

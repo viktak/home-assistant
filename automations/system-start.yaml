@@ -1,0 +1,38 @@
+#########################################################################################
+# System start
+#########################################################################################
+- alias: HASSIO starting
+  description: Request status of switches, lights, etc.
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+
+    - service: timer.start
+      data:
+        entity_id: timer.watchdog_pi_hole
+        duration: '00:15:00'
+
+    - service: script.viktors_office_ac_off
+
+    - service: mqtt.publish
+      data:
+        topic: "viktak/spiti/houselights/cmnd"
+        payload: '{"POWER1":"off"}'
+
+    - service: mqtt.publish
+      data:
+        topic: "viktak/spiti/upstairs-patari-relays/cmnd"
+        payload: '{"POWER0":"off"}'
+
+    - service: notify.telegram_viktor
+      data:
+        title: "Home Assistant System Message"
+        message: "Home Assistant started."
+
+    # Without this there is no alerting when update is available at HA starting time
+    - service: python_script.hass_entities
+      data:
+        action: set_state
+        entity_id: binary_sensor.updater
+        state: "off"

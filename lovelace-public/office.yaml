@@ -1,0 +1,143 @@
+title: Viktor's ofiice
+icon: mdi:office-building
+cards:
+
+###################################################################################
+#   Climate
+###################################################################################
+
+  - type: entities
+    title: Climate
+    show_header_toggle: false
+    entities:
+      - entity: sensor.balcony_temperature
+      - entity: sensor.office_temperature
+      - type: divider
+      - entity: timer.hvac_viktors_office
+        name: "A/C"
+        icon: mdi:air-conditioner
+        tap_action: none
+      - type: buttons
+        name: "A/C"
+        entities:
+          - entity: sensor.office_temperature
+            name: Heat
+            icon: mdi:weather-sunny
+            tap_action:
+              action: call-service
+              service: script.viktors_office_ac_heating_on
+          - entity: sensor.office_temperature
+            name: "Off"
+            icon: mdi:hvac-off
+            tap_action:
+              action: call-service
+              service: script.viktors_office_ac_off
+          - entity: sensor.office_temperature
+            name: Cool
+            icon: mdi:snowflake
+            tap_action:
+              action: call-service
+              service: script.viktors_office_ac_cooling_on
+
+
+###################################################################################
+#   Boiler
+###################################################################################
+
+  - type: entities
+    title: Boiler
+    show_header_toggle: false
+    entities:
+      - entity: switch.office_boiler
+        name: Boiler
+      - entity: timer.boiler_viktors_office
+        name: "Remaining time"
+        tap_action: none
+        
+
+###################################################################################
+#   Lights
+###################################################################################
+
+  - type: entities
+    title:  Lights
+    entities:
+      - entity: light.ceiling_light_in_viktor_s_office
+        name: Ceiling light
+
+
+###################################################################################
+#   Security
+###################################################################################
+
+  - type: entities
+    title: Security
+    show_header_toggle: false
+    entities:
+      - entity: sensor.office_door_status
+        name: Office door
+
+      - entity: sensor.office_door_battery_status
+        name: Battery in door sensor
+      
+      - entity: sensor.pir_viktors_office
+        name: Motion sensor
+        icon: mdi:run
+
+  - type: media-control
+    entity: media_player.spotify_viktak
+
+  # - type: media-control
+  #   entity: media_player.kodi_in_viktor_s_office
+
+
+  # - type: picture
+  #   image: http://192.168.1.105:81/stream
+
+
+
+###################################################################################
+#   qbittorrent
+###################################################################################
+
+  # - type: entities
+  #   title: qbitTorrent
+  #   entities:
+  #     - entity: sensor.test_status
+  #       name: Status
+  #       icon: mdi:information
+  #     - entity: sensor.test_down_speed
+  #       name: Download speed
+  #       icon: mdi:download
+  #     - entity: sensor.test_up_speed
+  #       name: Upload speed
+  #       icon: mdi:upload
+
+###################################################################################
+#   GitHub
+###################################################################################
+
+  - type: 'custom:github-flexi-card'
+    title: My GitHub
+    sort:
+      - by: views
+        ascending: false
+      - by: stargazers
+        ascending: false
+    url: true
+    attribute_urls: true
+    attributes:
+      - views
+      - stargazers
+      - open_issues
+      - clones
+      - forks
+      - open_pull_requests
+    entities:
+      - sensor.hall
+      - sensor.neopixel_clock
+      - sensor.fws_v2
+      - sensor.gps_tracker
+      - sensor.stairlight
+      - sensor.timechangerules
+      - sensor.wifi_ir_gateway

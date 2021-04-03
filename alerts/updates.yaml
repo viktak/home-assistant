@@ -1,0 +1,69 @@
+#####################################################################################
+#   System
+#####################################################################################
+
+# Update is available
+# Wait 5 minutes before first to give core config check time to run
+ha_update_available:
+  name: HA has an update
+  entity_id: binary_sensor.updater
+  state: 'on'
+  can_acknowledge: false
+  repeat: 
+    - 5
+    - 1440
+  skip_first: true
+  title: Update available for Core 
+  message: |
+    A new update is available: {{ state_attr('binary_sensor.updater', 'newest_version') }}
+    Currently on {{ states('sensor.ha_installed_version') }}
+    Compatibility check results: http://192.168.1.99:8123/hassio/addon/core\_check\_config/logs
+    Release notes:
+    {{ state_attr('sensor.home_assistant_latest_release', 'release-notes') }}
+  notifiers:
+    - telegram_viktor
+
+# Supervisor update is available - un-acknowledgeable, auto-dismiss, me only
+supervisor_update_available:
+  name: Supervisor has an update
+  entity_id: binary_sensor.updater_supervisor
+  state: 'on'
+  can_acknowledge: false
+  repeat: 1440
+  title: Update available for Supervisor
+  message: |
+    New version is {{ state_attr('sensor.supervisor_updates', 'newest_version') }}. Currently on {{ state_attr('sensor.supervisor_updates', 'current_version') }}\nFor details go to http://192.168.1.99:8123/hassio/dashboard
+  notifiers:
+    - telegram_viktor
+
+# HACS repos have updates available - unacknowledgeable, auto-dismiss, me only
+hacs_update_available:
+  name: HACS repos have updates
+  entity_id: binary_sensor.updater_hacs
+  state: 'on'
+  can_acknowledge: false
+  repeat: 1440
+  title: HACS repo{% if states('sensor.hacs') | int > 1 %}s{% endif %} updated
+  message: |
+    The following HACS component{% if states('sensor.hacs') | int > 1 %}s{% endif %} can be updated:
+    {% for repo in state_attr('sensor.hacs', 'repositories') %}- {{ repo.display_name}}
+    {% endfor %}For details and to update {% if states('sensor.hacs') | int > 1 %}them{% else %}it{% endif %} go to http://192.168.1.99:8123/hacs/entry
+
+  notifiers:
+    - telegram_viktor
+
+# Addons have updates available - unacknowledgeable, auto-dismiss, me only
+addon_update_available:
+  name: Addons have updates
+  entity_id: binary_sensor.updater_addons
+  state: 'on'
+  can_acknowledge: false
+  repeat: 1440
+  title: Add-on{% if states('sensor.supervisor_updates') | int > 1 %}s{% endif %} updated
+  message: |
+    The following add-on{% if states('sensor.supervisor_updates') | int > 1 %}s{% endif %} can be updated:
+    {% for addon in state_attr('sensor.supervisor_updates', 'addons') %}- {{ addon.name}}
+    {% endfor %}For details and to update {% if states('sensor.supervisor_updates') | int > 1 %}them{% else %}it{% endif %} go to http://192.168.1.99:8123/hassio/dashboard
+
+  notifiers:
+    - telegram_viktor

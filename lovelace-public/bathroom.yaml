@@ -1,0 +1,38 @@
+title: Bathroom
+icon: mdi:shower
+cards:
+  - type: entities
+    title: Washing machine
+    entities:
+      - entity: switch.washing_machine
+        name: Power
+      - entity: sensor.washing_machine_power
+        name: Power
+        icon: mdi:flash
+      - entity: sensor.washing_machine_voltage
+        name: Voltage
+        icon: mdi:flash
+      - entity: sensor.washing_machine_current
+        name: Current
+        icon: mdi:flash
+      - entity: sensor.washing_machine_apparent_power
+        name: Apparent power
+        icon: mdi:flash
+      - entity: sensor.washing_machine_reactive_power
+        name: Reactive power
+        icon: mdi:flash
+      - entity: sensor.washing_machine_total
+        name: Energy total
+        icon: mdi:flash
+      - entity: sensor.washing_machine_today
+        name: Energy today
+        icon: mdi:flash
+      - entity: sensor.washing_machine_yesterday
+        name: Energy yesterday
+        icon: mdi:flash
+      - entity: sensor.washing_machine_period
+        name: Period
+        icon: mdi:flash
+      - entity: sensor.washing_machine_factor
+        name: Factor
+        icon: mdi:flash

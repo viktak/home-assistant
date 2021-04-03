@@ -1,0 +1,28 @@
+title: Bedroom
+icon: mdi:bed-king
+cards:
+  - type: entities
+    title: Climate
+    show_header_toggle: false
+    entities:
+      - entity: sensor.bedroom_temperature
+        name: Temperature
+
+  - type: entities
+    title:  Lights
+    entities:
+      - entity: light.ceiling_light_in_bedroom
+        name: Ceiling light
+
+  - type: entities
+    title:  Security
+    show_header_toggle: false
+    entities:
+      - entity: sensor.bedroom_window_status
+        name: Balcony door
+      - entity: sensor.bedroom_window_battery_status
+        name: Battery level
+      - entity: sensor.pir_bedroom
+        name: Motion sensor
+        icon: mdi:run
+    

@@ -1,0 +1,244 @@
+title: System
+icon: mdi:cogs
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: custom:canvas-gauge-card
+        entity: sensor.processor_use_percent
+        card_height: 160
+        gauge:
+          type: "radial-gauge"
+          title: Processor (%)
+          width: 150
+          height: 150
+          minValue: 0
+          maxValue: 100
+          startAngle: 30
+          ticksAngle: 300
+          valueBox: false
+          data-animate-on-init: true
+          data-animation-duration: 500
+          animationRule: debounce
+          majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
+          minorTicks: 2
+          strokeTicks: true
+          highlights: [{"from": 80, "to": 100,"color": "rgba(200, 50, 50, .75)"}]
+          borders: false
+
+      - type: custom:canvas-gauge-card
+        entity: sensor.memory_use_percent
+        card_height: 160
+        gauge:
+          type: "radial-gauge"
+          title: Memory use (%)
+          width: 150
+          height: 150
+          minValue: 0
+          maxValue: 100
+          startAngle: 30
+          ticksAngle: 300
+          valueBox: false
+          data-animate-on-init: true
+          data-animation-duration: 500
+          animationRule: debounce
+          majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
+          minorTicks: 2
+          strokeTicks: true
+          highlights: [{"from": 80, "to": 100,"color": "rgba(200, 50, 50, .75)"}]
+          borders: false
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:canvas-gauge-card
+        entity: sensor.disk_use_percent
+        card_height: 160
+        gauge:
+          type: "radial-gauge"
+          title: Disk use (%)
+          width: 150
+          height: 150
+          minValue: 0
+          maxValue: 100
+          startAngle: 30
+          ticksAngle: 300
+          valueBox: false
+          data-animate-on-init: true
+          data-animation-duration: 500
+          animationRule: debounce
+          majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
+          minorTicks: 2
+          strokeTicks: true
+          highlights: [{"from": 80, "to": 100,"color": "rgba(200, 50, 50, .75)"}]
+          borders: false
+
+      - type: custom:canvas-gauge-card
+        entity: sensor.swap_use_percent
+        card_height: 160
+        gauge:
+          type: "radial-gauge"
+          title: Swap use (%)
+          width: 150
+          height: 150
+          minValue: 0
+          maxValue: 100
+          startAngle: 30
+          ticksAngle: 300
+          valueBox: false
+          data-animate-on-init: true
+          data-animation-duration: 500
+          animationRule: debounce
+          majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
+          minorTicks: 2
+          strokeTicks: true
+          highlights: [{"from": 80, "to": 100,"color": "rgba(200, 50, 50, .75)"}]
+          borders: false
+
+
+  - type: entity-filter
+    title: vNodes
+    show_empty: false
+    entities:
+      - entity: sensor.hall_sensor_living_room
+      - entity: sensor.hall_sensor_bedroom
+      - entity: sensor.hall_sensor_office
+      - entity: sensor.hall_sensor_guest_bedroom
+      - entity: sensor.fws
+      - entity: sensor.esp_development_201
+      - entity: sensor.esp_development_202
+      - entity: sensor.esp_development_203
+      - entity: sensor.living_room_wifi_ir
+      - entity: sensor.office_wifi_ir
+      - entity: sensor.office_neopixel_clock
+    state_filter:
+      - "unknown"
+      - "offline"
+      - "unavailable"
+    card:
+      title: Problems
+      show_header_toggle: false
+      show_state: false
+  
+  - type: entities
+    title: Notifications
+    entities:
+      - entity: input_boolean.notify_motion_sensors_upstairs
+      - entity: input_boolean.notify_motion_sensors_downstairs
+
+
+  - type: entities
+    title: Pi-Hole
+    show_header_toggle: false
+    entities:
+      - entity: sensor.pihole_disk_free_space_formatted
+        icon: mdi:harddisk
+        name: Disk Free space
+      - entity: sensor.pihole_dns_queries_today
+        icon: mdi:counter
+      - entity: sensor.pihole_ads_blocked_today
+        unit_of_measurement: ads
+        friendly_name: Ads Blocked Today
+        icon: mdi:block-helper
+      - entity: sensor.pihole_ads_percentage_blocked_today
+        unit_of_measurement: '%'
+        friendly_name: Ads Percentage Blocked Today
+        icon: mdi:block-helper
+
+  - type: entities
+    title: Pi-Hole
+    show_header_toggle: false
+    entities:
+      - entity: sensor.pihole_hostname
+        name: Hostname
+      - entity: sensor.pihole_model
+        name: Model
+      - entity: sensor.pihole_architecture
+        name: Architecture
+      - entity: sensor.pihole_uptime
+        name: Uptime
+      - entity: sensor.pihole_load1
+        name: Load (1 min)
+      - entity: sensor.pihole_load5
+        name: Load (5 min)
+      - entity: sensor.pihole_load15
+        name: Load (15 min)
+      - entity: sensor.pihole_lastupdated
+        name: Last updated
+      - entity: sensor.pihole_number_of_cpus
+        name: CPU(s)
+      - entity: sensor.pihole_cores_per_socket
+        name: Cores/Socket
+      - entity: sensor.pihole_threads_per_core
+        name: Threads/Core
+      - entity: sensor.pihole_os
+        name: OS
+      - entity: sensor.pihole_temperature
+        name: CPU temperature
+      - entity: sensor.pihole_total_memory
+        name: Total memory
+      - entity: sensor.pihole_free_memory
+        name: Free memory
+      - entity: sensor.pihole_total_disk_space
+        name: Disk size
+      - entity: sensor.pihole_disk_free_space
+        name: Free disk space
+      - entity: sensor.pihole_total_swap
+        name: Swap size
+      - entity: sensor.pihole_free_swap
+        name: Free swap size
+      - entity: sensor.pihole_ipaddress
+        name: IP address
+
+
+  - type: entities
+    title: SpotiPi
+    show_header_toggle: false
+    entities:
+      - entity: sensor.spotipi_hostname
+        name: Hostname
+      - entity: sensor.spotipi_model
+        name: Model
+      - entity: sensor.spotipi_architecture
+        name: Architecture
+      - entity: sensor.spotipi_uptime
+        name: Uptime
+      - entity: sensor.spotipi_load1
+        name: Load (1 min)
+      - entity: sensor.spotipi_load5
+        name: Load (5 min)
+      - entity: sensor.spotipi_load15
+        name: Load (15 min)
+      - entity: sensor.spotipi_lastupdated
+        name: Last updated
+      - entity: sensor.spotipi_number_of_cpus
+        name: CPU(s)
+      - entity: sensor.spotipi_cores_per_socket
+        name: Cores/Socket
+      - entity: sensor.spotipi_threads_per_core
+        name: Threads/Core
+      - entity: sensor.spotipi_os
+        name: OS
+      - entity: sensor.spotipi_temperature
+        name: CPU temperature
+      - entity: sensor.spotipi_total_memory
+        name: Total memory
+      - entity: sensor.spotipi_free_memory
+        name: Free memory
+      - entity: sensor.spotipi_total_disk_space
+        name: Disk size
+      - entity: sensor.spotipi_disk_free_space
+        name: Free disk space
+      - entity: sensor.spotipi_total_swap
+        name: Swap size
+      - entity: sensor.spotipi_free_swap
+        name: Free swap size
+      - entity: sensor.spotipi_ipaddress
+        name: IP address
+      
+  
+
+  # - type: entities
+  #   title: Certificates
+  #   show_header_toggle: false
+  #   entities:
+  #     - entity: sensor.home_assistant_ssl_certificate
+  #       name: Home Assistant

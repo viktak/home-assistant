@@ -1,0 +1,25 @@
+#########################################################################################
+# Open doors
+#########################################################################################
+- alias: "Office door opens"
+  trigger:
+  - entity_id: sensor.office_door
+    platform: state
+    to: "open"
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: "Office door"
+        message: "Office door was just opened!"
+
+- alias: "Office door closes"
+  trigger:
+  - entity_id: sensor.office_door
+    platform: state
+    to: "closed"
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: "Office door"
+        message: "Office door is now closed"
+

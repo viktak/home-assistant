@@ -1,0 +1,82 @@
+title: Certificates
+icon: mdi:certificate
+cards:
+
+###################################################################################
+#   Own
+###################################################################################
+
+  - type: vertical-stack
+    title: Own domains
+    cards:
+      - type: custom:bar-card
+        positions:
+          indicator: none
+          name: inside
+          value: inside
+        columns: 1
+        max: 90
+        card_mod:
+        style: |
+          #states > bar-card-row:nth-child(1) > bar-card-card:nth-child(1) > bar-card-background:nth-child(2) > bar-card-contentbar:nth-child(3) > bar-card-value:nth-child(2) {
+          {% if states('sensor.certificate_viktak_com') | int < 15 %}
+            color: #bf4040;
+          {% elif states('sensor.certificate_viktak_com') | int < 30 %}
+            color: yellow;
+          {% else %}
+          {% endif %}
+          }
+          #states > bar-card-row:nth-child(2) > bar-card-card:nth-child(1) > bar-card-background:nth-child(2) > bar-card-contentbar:nth-child(3) > bar-card-value:nth-child(2) {
+          {% if states('sensor.certificate_andthatshowitsdone_viktak_com') | int < 15 %}
+            color: #bf4040;
+          {% elif states('sensor.certificate_andthatshowitsdone_viktak_com') | int < 30 %}
+            color: yellow;
+          {% else %}
+          {% endif %}
+          }
+          #states > bar-card-row:nth-child(3) > bar-card-card:nth-child(1) > bar-card-background:nth-child(2) > bar-card-contentbar:nth-child(3) > bar-card-value:nth-child(2) {
+          {% if states('sensor.certificate_diy_viktak_com') | int < 15 %}
+            color: #bf4040;
+          {% elif states('sensor.certificate_diy_viktak_com') | int < 30 %}
+            color: yellow;
+          {% else %}
+          {% endif %}
+          }
+        entities:
+          - entity: sensor.certificate_viktak_com
+            name: viktak.com
+          - entity: sensor.certificate_andthatshowitsdone_viktak_com
+            name: andthatshowitsdone.viktak.com
+          - entity: sensor.certificate_diy_viktak_com
+            name: diy.viktak.com
+
+
+
+###################################################################################
+#   Managed
+###################################################################################
+
+  - type: vertical-stack
+    title: Managed domains
+    cards:
+      - type: custom:bar-card
+        positions:
+          indicator: none
+          name: inside
+          value: inside
+        columns: 1
+        max: 90
+        card_mod:
+        style: |
+          #states > bar-card-row:nth-child(1) > bar-card-card:nth-child(1) > bar-card-background:nth-child(2) > bar-card-contentbar:nth-child(3) > bar-card-value:nth-child(2) {
+          {% if states('sensor.certificate_radionefeli_com') | int < 15 %}
+            color: #bf4040;
+          {% elif states('sensor.certificate_radionefeli_com') | int < 30 %}
+            color: yellow;
+          {% else %}
+          {% endif %}
+          }
+        entities:
+          - entity: sensor.certificate_radionefeli_com
+            name: radionefeli.com
+

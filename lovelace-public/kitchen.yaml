@@ -1,0 +1,6 @@
+title: Kitchen
+icon: mdi:table-chair
+cards:
+  - type: shopping-list
+    title: Shopping List
+

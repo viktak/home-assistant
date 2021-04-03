@@ -1,0 +1,9 @@
+api_version: 2
+ssl: false
+organization: !secret influxdb_organization
+host: !secret influxdb_ip_address
+port: !secret influxdb_port
+token: !secret influxdb_ha_token
+bucket: !secret influxdb_ha_bucket
+tags:
+  source: HA

@@ -1,0 +1,124 @@
+title: Home
+icon: mdi:grain
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: custom:mini-graph-card
+        name: UV Index
+        icon: mdi:gauge
+        hours_to_show: 24
+        points_per_hour: 6
+        hour24: true
+        show:
+          extrema: true
+        entities:
+          - entity: sensor.owm_ultraviolet_index
+
+      - type: custom:mini-graph-card
+        name: Overall Air Quality
+        icon: mdi:gauge
+        hours_to_show: 24
+        points_per_hour: 6
+        hour24: true
+        show:
+          extrema: true
+        entities:
+          - entity: sensor.owm_pollution_overall_air_quality
+
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:mini-graph-card
+        name: Fine Particle Matter (PM2.5)
+        hours_to_show: 24
+        points_per_hour: 6
+        hour24: true
+        icon: mdi:scatter-plot
+        show:
+          extrema: true
+        entities:
+          - entity: sensor.owm_pollution_fine_particles_pm2_5
+          
+      - type: custom:mini-graph-card
+        name: Coarse Particle Matter (PM10)
+        icon: mdi:scatter-plot
+        hours_to_show: 24
+        points_per_hour: 6
+        hour24: true
+        show:
+          extrema: true
+        entities:
+          - entity: sensor.owm_pollution_coarse_particles_pm10
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:mini-graph-card
+        name: Ozone (O3)
+        icon: mdi:chemical-weapon
+        hours_to_show: 24
+        points_per_hour: 6
+        hour24: true
+        show:
+          extrema: true
+        entities:
+          - entity: sensor.owm_pollution_ozone_o3
+
+      - type: custom:mini-graph-card
+        name: Carbon Monoxide (CO)
+        icon: mdi:chemical-weapon
+        hours_to_show: 24
+        points_per_hour: 6
+        hour24: true
+        show:
+          extrema: true
+        entities:
+          - entity: sensor.owm_pollution_carbon_monoxide_co
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:mini-graph-card
+        name: Nitrogen Monoxide (NO)
+        icon: mdi:chemical-weapon
+        hours_to_show: 24
+        points_per_hour: 6
+        hour24: true
+        show:
+          extrema: true
+        entities:
+          - entity: sensor.owm_pollution_nitrogen_monoxide_no
+
+      - type: custom:mini-graph-card
+        name: Nitrogen dioxide (NO2)
+        icon: mdi:chemical-weapon
+        hours_to_show: 24
+        points_per_hour: 6
+        hour24: true
+        show:
+          extrema: true
+        entities:
+          - entity: sensor.owm_pollution_nitrogen_dioxide_no2
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:mini-graph-card
+        name: Ammonia (NH3)
+        icon: mdi:chemical-weapon
+        hours_to_show: 24
+        points_per_hour: 6
+        hour24: true
+        show:
+          extrema: true
+        entities:
+          - entity: sensor.owm_pollution_ammonia_nh3
+
+      - type: custom:mini-graph-card
+        name: Sulphur Dioxide (SO2)
+        icon: mdi:chemical-weapon
+        hours_to_show: 24
+        points_per_hour: 6
+        hour24: true
+        show:
+          extrema: true
+        entities:
+          - entity: sensor.owm_pollution_sulphur_dioxide_so2
+
