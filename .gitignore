@@ -7,22 +7,22 @@
 !*.md
 
 # folders
-alerts
-automations
-custom_components
-databases
-entities
-integrations
-lovelace-admin
-lovelace-enviroment
-lovelace-public
-lovelace-system
-panels
-python_scripts
-scripts
-shell_commands
-themes
-www
+!alerts
+!automations
+!custom_components
+!databases
+!entities
+!integrations
+!lovelace-admin
+!lovelace-enviroment
+!lovelace-public
+!lovelace-system
+!panels
+!python_scripts
+!scripts
+!shell_commands
+1themes
+1www
 
 
 # Ignore folders.
