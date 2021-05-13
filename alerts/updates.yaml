@@ -6,6 +6,7 @@
 # Wait 5 minutes before first to give core config check time to run
 ha_update_available:
   name: HA has an update
+  # entity_id: binary_sensor.core
   entity_id: binary_sensor.updater
   state: 'on'
   can_acknowledge: false

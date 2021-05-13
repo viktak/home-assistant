@@ -83,6 +83,16 @@ cards:
     details: true
     forecast: true
 
+# Name days
+  - type: entities
+    title: Name days
+    show_header_toggle: false
+    entities:
+      - entity: sensor.nameday_hu
+        name: Hungary
+      - entity: sensor.nameday_gr
+        name: Greece
+
 
 # Who is home?
   - type: entity-filter

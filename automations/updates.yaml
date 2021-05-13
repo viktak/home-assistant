@@ -6,7 +6,8 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.updater
-      to: 'on'
+      #entity_id: binary_sensor.core_updated
+      to: "on"
   condition: []
   action:
     service: hassio.addon_start

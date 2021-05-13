@@ -118,7 +118,7 @@ cards:
 ###################################################################################
 
   - type: 'custom:github-flexi-card'
-    title: My GitHub
+    title: GitHub
     sort:
       - by: views
         ascending: false
@@ -134,10 +134,5 @@ cards:
       - forks
       - open_pull_requests
     entities:
-      - sensor.hall
-      - sensor.neopixel_clock
-      - sensor.fws_v2
       - sensor.gps_tracker
-      - sensor.stairlight
-      - sensor.timechangerules
       - sensor.wifi_ir_gateway

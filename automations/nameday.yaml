@@ -1,0 +1,35 @@
+- alias: Nameday in Hungary
+  description: "New nameday in Hungary"
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.nameday_hu
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: "Name day in Hungary"
+        message: "Today the following people celebrate their name day in Hungary: {{ states('sensor.nameday_hu') }}"
+
+    - service: notify.telegram_victoria
+      data:
+        title: "Name day in Hungary"
+        message: "Today the following people celebrate their name day in Hungary: {{ states('sensor.nameday_hu') }}"
+
+
+- alias: Nameday in Greece
+  description: "New nameday in Greece"
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.nameday_gr
+  action:
+    - service: notify.telegram_viktor
+      data:
+        title: "Name day in Greece"
+        message: "Today the following people celebrate their name day in Greece: {{ states('sensor.nameday_gr') }}"
+
+    - service: notify.telegram_victoria
+      data:
+        title: "Name day in Greece"
+        message: "Today the following people celebrate their name day in Greece: {{ states('sensor.nameday_gr') }}"
+          

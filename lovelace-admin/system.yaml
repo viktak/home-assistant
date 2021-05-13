@@ -123,6 +123,7 @@ cards:
     entities:
       - entity: input_boolean.notify_motion_sensors_upstairs
       - entity: input_boolean.notify_motion_sensors_downstairs
+      - entity: input_boolean.notify_bedroom_window
 
 
   - type: entities

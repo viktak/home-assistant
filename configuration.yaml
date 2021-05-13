@@ -125,6 +125,7 @@ shopping_list:
 
 stream:
 
+ffmpeg:
 
 
 #####################################################################################
@@ -138,7 +139,6 @@ group: !include groups.yaml
 scene: !include scenes.yaml
 timer: !include timers.yaml
 zone: !include zones.yaml
-camera: !include cameras.yaml
 recorder: !include recorder.yaml
 frontend: !include integrations/frontend.yaml
 http: !include integrations/http.yaml
@@ -161,6 +161,7 @@ sensor: !include_dir_merge_list entities/sensors
 binary_sensor: !include_dir_merge_list entities/binary-sensors
 shell_command: !include_dir_merge_list shell_commands
 notify: !include_dir_merge_list entities/notifiers
+camera: !include_dir_merge_list entities/cameras
 
 
 input_boolean: !include_dir_merge_named entities/input_booleans

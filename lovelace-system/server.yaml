@@ -64,8 +64,14 @@ cards:
                   action:  navigate
                   navigation_path :  /hassio/dashboard
             card_mod:
+            # style: |
+            #   {% if states('binary_sensor.updater') == "on" %}
+            #   div.entity:nth-child(2) > div:nth-child(2) {
+            #     color: yellow;
+            #   }
+            #   {% endif %}
             style: |
-              {% if states('binary_sensor.updater') == "on" %}
+              {% if states('sensor.core_version_latest') > states('sensor.current_version') %}
               div.entity:nth-child(2) > div:nth-child(2) {
                 color: yellow;
               }
@@ -83,8 +89,8 @@ cards:
               - entity: sensor.supervisor_latest_version
                 name: Latest
                 tap_action:
-                  action:  navigate
-                  navigation_path :  /hassio/dashboard
+                  action: navigate
+                  navigation_path: /hassio/dashboard
             card_mod:
             style: |
               {% if states('binary_sensor.updater_supervisor') == "on" %}
@@ -104,8 +110,8 @@ cards:
                 }
                 {% endif %}
             tap_action:
-              action:  navigate
-              navigation_path :  /hassio/store
+              action: navigate
+              navigation_path: /hassio/dashboard
           - entity: sensor.hacs_number_of_updates_available
             name: HACS
             icon: mdi:contacts
@@ -117,8 +123,8 @@ cards:
                 }
                 {% endif %}
             tap_action:
-              action:  navigate
-              navigation_path :  /hacs/entry
+              action: navigate
+              navigation_path: /hacs/entry
 
 
           - type: divider
