@@ -53,7 +53,7 @@ cards:
 
       - entity: light.ceiling_light_in_viktor_s_office
       - entity: light.ceiling_light_in_bedroom
-      - entity: light.ceiling_light_in_the_guest_bedroom
+      - entity: light.ceiling_lamp_guest_bedroom
 
       - entity: sensor.bedroom_window
       - entity: sensor.office_door
@@ -73,7 +73,42 @@ cards:
 ######################################
 
 
+#####################################
+# Important
+#####################################
 
+# VPN Clients
+  - type: entity-filter
+    show_empty: false
+    entities:
+      - entity: sensor.pivpn_victoria_redminote8
+        icon: mdi:vpn
+        name: Victoria's phone
+
+      - entity: sensor.pivpn_viktor_op3
+        icon: mdi:vpn
+        name: Viktor's phone
+
+
+    state_filter:
+      - "Connected"
+
+    card:
+      title: Connected VPN Clients
+      show_header_toggle: false
+      show_state: false
+
+
+#####################################
+# Important
+#####################################
+
+
+# # MeteoAlarm
+  - type: 'custom:meteoalarm-card'
+    entity: 'binary_sensor.meteoalarm'
+    integration: 'automatic'
+    override_headline: true
 
 # Weather  
   - type: custom:weather-card
@@ -82,6 +117,14 @@ cards:
     current: true
     details: true
     forecast: true
+
+# Moon
+  - type: entities
+    title: Moon
+    show_header_toggle: false
+    entities:
+      - entity: sensor.moon
+
 
 # Name days
   - type: entities
@@ -116,9 +159,9 @@ cards:
       - entity: switch.living_room_ceiling_lights_2
       - entity: switch.living_room_ceiling_lights_3
       - entity: switch.living_room_ceiling_lights_4
-      - entity: light.ceiling_light_in_viktor_s_office
-      - entity: light.ceiling_light_in_bedroom
-      - entity: light.ceiling_light_in_guest_bedroom
+      - entity: light.office_ceiling_light
+      - entity: light.ceiling_lamp_bedroom
+      - entity: light.guest_bedroom_ceiling_light
       - entity: switch.staircase_light
       - entity: switch.entrance_light
     state_filter:
@@ -131,9 +174,15 @@ cards:
   - type: entity-filter      
     show_empty: false
     entities:
-      - entity: timer.hvac_viktors_office
+      - entity: timer.hvac_office
+        type: custom:timer-bar-card
         name: Viktor's office
-        icon: mdi:air-conditioner
+        bar_direction: rtl
+        bar_foreground: '#eee'
+        bar_background: 'var(--mdc-theme-primary, #6200ee)'
+        tap_action:
+          action: finish
+
     state_filter:
       - "active"
     card:
@@ -232,11 +281,10 @@ cards:
     entities:
       - entity: input_boolean.rl_bedroom
         name: Bedroom
-      - entity: input_boolean.rl_viktor_s_office
+      - entity: input_boolean.rl_office
         name: Viktor's office
       - entity: input_boolean.rl_guest_bedroom
         name: Guest bedroom
-
 
 # Upcoming buses
   - type: entities
@@ -287,36 +335,36 @@ cards:
     - type: glance
       title: "CoViD-19 in Greece"
       entities:
-        - entity: sensor.greece_coronavirus_current
-          name: "Current"
+        # - entity: sensor.greece_coronavirus_current
+        #   name: "Current"
         - entity: sensor.greece_coronavirus_confirmed
           name: "Confirmed"
-        - entity: sensor.greece_coronavirus_recovered
-          name: "Recovered"
+        # - entity: sensor.greece_coronavirus_recovered
+        #   name: "Recovered"
         - entity: sensor.greece_coronavirus_deaths
           name: "Deaths"
 
     - type: glance
       title: "CoViD-19 in Hungary"
       entities:
-        - entity: sensor.hungary_coronavirus_current
-          name: "Current"
+        # - entity: sensor.hungary_coronavirus_current
+        #   name: "Current"
         - entity: sensor.hungary_coronavirus_confirmed
           name: "Confirmed"
-        - entity: sensor.hungary_coronavirus_recovered
-          name: "Recovered"
+        # - entity: sensor.hungary_coronavirus_recovered
+        #   name: "Recovered"
         - entity: sensor.hungary_coronavirus_deaths
           name: "Deaths"
 
     - type: glance
       title: "CoViD-19 Worldwide"
       entities:
-        - entity: sensor.worldwide_coronavirus_current
-          name: "Current"
+        # - entity: sensor.worldwide_coronavirus_current
+        #   name: "Current"
         - entity: sensor.worldwide_coronavirus_confirmed
           name: "Confirmed"
-        - entity: sensor.worldwide_coronavirus_recovered
-          name: "Recovered"
+        # - entity: sensor.worldwide_coronavirus_recovered
+        #   name: "Recovered"
         - entity: sensor.worldwide_coronavirus_deaths
           name: "Deaths"
 

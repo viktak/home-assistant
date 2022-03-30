@@ -7,7 +7,7 @@
     - platform: numeric_state
       entity_id: sensor.pihole_disk_free_space
       value_template: "{{ states('sensor.pihole_disk_free_space') | replace(',','') | int }}"
-      below: 500000
+      below: 1000000
     - platform: event
       event_type: timer.finished
       event_data:
@@ -29,7 +29,7 @@
     platform: numeric_state
     entity_id: sensor.pihole_disk_free_space
     value_template: "{{ states('sensor.pihole_disk_free_space') | replace(',','') | int }}"
-    above: 500000
+    above: 1000000
   action:
     - service: notify.telegram_viktor
       data_template:

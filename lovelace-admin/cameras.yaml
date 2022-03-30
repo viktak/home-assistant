@@ -1,10 +1,10 @@
 title: Surveilance cameras
 icon: mdi:cctv
 cards:
-  - type: picture
-    name: Viktor's office
-    camera_image: camera.logitech
+  # - type: picture
+  #   name: Viktor's office
+  #   camera_image: camera.logitech
 
-  - type: picture
-    name: Viktor's office
-    camera_image: camera.logitech
+  # - type: picture
+  #   name: Viktor's office
+  #   camera_image: camera.logitech

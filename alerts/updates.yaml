@@ -33,7 +33,8 @@ supervisor_update_available:
   repeat: 1440
   title: Update available for Supervisor
   message: |
-    New version is {{ state_attr('sensor.supervisor_updates', 'newest_version') }}. Currently on {{ state_attr('sensor.supervisor_updates', 'current_version') }}\nFor details go to http://192.168.1.99:8123/hassio/dashboard
+    New version is {{ state_attr('sensor.supervisor_updates', 'newest_version') }}. Currently on {{ state_attr('sensor.supervisor_updates', 'current_version') }}
+    For details go to http://192.168.1.99:8123/config/dashboard
   notifiers:
     - telegram_viktor
 

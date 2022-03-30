@@ -7,9 +7,9 @@
     - platform: event
       event_type: timer.finished
       event_data:
-        entity_id: timer.hvac_viktors_office
+        entity_id: timer.hvac_office
   action:
-    - service: script.viktors_office_ac_off
+    - service: script.office_ac_off
 
 
         

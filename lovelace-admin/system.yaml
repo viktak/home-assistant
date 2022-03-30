@@ -26,7 +26,7 @@ cards:
           borders: false
 
       - type: custom:canvas-gauge-card
-        entity: sensor.memory_use_percent
+        entity: sensor.memory_use+_percent
         card_height: 160
         gauge:
           type: "radial-gauge"
@@ -144,97 +144,6 @@ cards:
         friendly_name: Ads Percentage Blocked Today
         icon: mdi:block-helper
 
-  - type: entities
-    title: Pi-Hole
-    show_header_toggle: false
-    entities:
-      - entity: sensor.pihole_hostname
-        name: Hostname
-      - entity: sensor.pihole_model
-        name: Model
-      - entity: sensor.pihole_architecture
-        name: Architecture
-      - entity: sensor.pihole_uptime
-        name: Uptime
-      - entity: sensor.pihole_load1
-        name: Load (1 min)
-      - entity: sensor.pihole_load5
-        name: Load (5 min)
-      - entity: sensor.pihole_load15
-        name: Load (15 min)
-      - entity: sensor.pihole_lastupdated
-        name: Last updated
-      - entity: sensor.pihole_number_of_cpus
-        name: CPU(s)
-      - entity: sensor.pihole_cores_per_socket
-        name: Cores/Socket
-      - entity: sensor.pihole_threads_per_core
-        name: Threads/Core
-      - entity: sensor.pihole_os
-        name: OS
-      - entity: sensor.pihole_temperature
-        name: CPU temperature
-      - entity: sensor.pihole_total_memory
-        name: Total memory
-      - entity: sensor.pihole_free_memory
-        name: Free memory
-      - entity: sensor.pihole_total_disk_space
-        name: Disk size
-      - entity: sensor.pihole_disk_free_space
-        name: Free disk space
-      - entity: sensor.pihole_total_swap
-        name: Swap size
-      - entity: sensor.pihole_free_swap
-        name: Free swap size
-      - entity: sensor.pihole_ipaddress
-        name: IP address
-
-
-  - type: entities
-    title: SpotiPi
-    show_header_toggle: false
-    entities:
-      - entity: sensor.spotipi_hostname
-        name: Hostname
-      - entity: sensor.spotipi_model
-        name: Model
-      - entity: sensor.spotipi_architecture
-        name: Architecture
-      - entity: sensor.spotipi_uptime
-        name: Uptime
-      - entity: sensor.spotipi_load1
-        name: Load (1 min)
-      - entity: sensor.spotipi_load5
-        name: Load (5 min)
-      - entity: sensor.spotipi_load15
-        name: Load (15 min)
-      - entity: sensor.spotipi_lastupdated
-        name: Last updated
-      - entity: sensor.spotipi_number_of_cpus
-        name: CPU(s)
-      - entity: sensor.spotipi_cores_per_socket
-        name: Cores/Socket
-      - entity: sensor.spotipi_threads_per_core
-        name: Threads/Core
-      - entity: sensor.spotipi_os
-        name: OS
-      - entity: sensor.spotipi_temperature
-        name: CPU temperature
-      - entity: sensor.spotipi_total_memory
-        name: Total memory
-      - entity: sensor.spotipi_free_memory
-        name: Free memory
-      - entity: sensor.spotipi_total_disk_space
-        name: Disk size
-      - entity: sensor.spotipi_disk_free_space
-        name: Free disk space
-      - entity: sensor.spotipi_total_swap
-        name: Swap size
-      - entity: sensor.spotipi_free_swap
-        name: Free swap size
-      - entity: sensor.spotipi_ipaddress
-        name: IP address
-      
   
 
   # - type: entities

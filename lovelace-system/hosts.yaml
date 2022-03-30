@@ -1,0 +1,24 @@
+title: Hosts
+icon: mdi:network
+
+type: custom:layout-card
+layout_type: custom:masonry-layout
+layout:
+  width: 500
+
+cards:
+  - type: custom:list-card
+    entity: sensor.hostnames
+    title: Hostnames
+    feed_attribute: hosts
+    columns:
+      - title: Hostname
+        field: field4
+      - title: IP Address
+        field: field3
+        style:
+          - text-align: center
+      - title: MAC Address
+        field: field2
+        style:
+          - text-align: center

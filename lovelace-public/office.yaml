@@ -1,4 +1,4 @@
-title: Viktor's ofiice
+title: Ofiice
 icon: mdi:office-building
 cards:
 
@@ -11,12 +11,16 @@ cards:
     show_header_toggle: false
     entities:
       - entity: sensor.balcony_temperature
+
       - entity: sensor.office_temperature
+
       - type: divider
-      - entity: timer.hvac_viktors_office
-        name: "A/C"
-        icon: mdi:air-conditioner
-        tap_action: none
+
+      # - entity: timer.hvac_viktors_office
+      #   name: "A/C"
+      #   icon: mdi:air-conditioner
+      #   tap_action: none
+
       - type: buttons
         name: "A/C"
         entities:
@@ -25,19 +29,28 @@ cards:
             icon: mdi:weather-sunny
             tap_action:
               action: call-service
-              service: script.viktors_office_ac_heating_on
+              service: script.office_ac_heating_on
           - entity: sensor.office_temperature
             name: "Off"
             icon: mdi:hvac-off
             tap_action:
               action: call-service
-              service: script.viktors_office_ac_off
+              service: script.office_ac_off
           - entity: sensor.office_temperature
             name: Cool
             icon: mdi:snowflake
             tap_action:
               action: call-service
-              service: script.viktors_office_ac_cooling_on
+              service: script.office_ac_cooling_on
+
+      - type: custom:timer-bar-card
+        entities:
+          - timer.hvac_office
+        bar_direction: rtl
+        bar_foreground: '#eee'
+        bar_background: 'var(--mdc-theme-primary, #6200ee)'
+
+              
 
 
 ###################################################################################
@@ -50,9 +63,6 @@ cards:
     entities:
       - entity: switch.office_boiler
         name: Boiler
-      - entity: timer.boiler_viktors_office
-        name: "Remaining time"
-        tap_action: none
         
 
 ###################################################################################
@@ -62,7 +72,7 @@ cards:
   - type: entities
     title:  Lights
     entities:
-      - entity: light.ceiling_light_in_viktor_s_office
+      - entity: light.office_ceiling_light
         name: Ceiling light
 
 
@@ -85,7 +95,12 @@ cards:
         icon: mdi:run
 
   - type: media-control
-    entity: media_player.spotify_viktak
+    entity: media_player.mc3
+    name: MC3
+
+  # - type: media-control
+  #   entity: media_player.office_media_center_upnp_av
+  #   name: MC3
 
   # - type: media-control
   #   entity: media_player.kodi_in_viktor_s_office
@@ -117,22 +132,22 @@ cards:
 #   GitHub
 ###################################################################################
 
-  - type: 'custom:github-flexi-card'
-    title: GitHub
-    sort:
-      - by: views
-        ascending: false
-      - by: stargazers
-        ascending: false
-    url: true
-    attribute_urls: true
-    attributes:
-      - views
-      - stargazers
-      - open_issues
-      - clones
-      - forks
-      - open_pull_requests
-    entities:
-      - sensor.gps_tracker
-      - sensor.wifi_ir_gateway
+  # - type: 'custom:github-flexi-card'
+  #   title: GitHub
+  #   sort:
+  #     - by: views
+  #       ascending: false
+  #     - by: stargazers
+  #       ascending: false
+  #   url: true
+  #   attribute_urls: true
+  #   attributes:
+  #     - views
+  #     - stargazers
+  #     - open_issues
+  #     - clones
+  #     - forks
+  #     - open_pull_requests
+  #   entities:
+  #     - sensor.gps_tracker
+  #     - sensor.wifi_ir_gateway

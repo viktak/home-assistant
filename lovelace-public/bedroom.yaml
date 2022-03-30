@@ -11,7 +11,7 @@ cards:
   - type: entities
     title:  Lights
     entities:
-      - entity: light.ceiling_light_in_bedroom
+      - entity: light.ceiling_lamp_bedroom
         name: Ceiling light
 
   - type: entities

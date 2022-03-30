@@ -72,9 +72,21 @@ lovelace:
     - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
       type: module
 
-    - url: /hacsfiles/lovelace-card-mod/card-mod.js
+    # - url: /hacsfiles/lovelace-card-mod/card-mod.js
+    #   type: module
+
+    - url: /hacsfiles/MeteoalarmCard/meteoalarm-card.js
       type: module
-                                 
+
+    - url: /hacsfiles/timer-bar-card/timer-bar-card.js
+      type: module
+                
+    - url: /hacsfiles/flex-table-card/flex-table-card.js
+      type: module
+
+    - url: /hacsfiles/lovelace-layout-card/layout-card.js
+      type: module
+
                 
   dashboards:
     lovelace-admin:
@@ -142,14 +154,12 @@ zone: !include zones.yaml
 recorder: !include recorder.yaml
 frontend: !include integrations/frontend.yaml
 http: !include integrations/http.yaml
-speedtestdotnet: !include integrations/speedtest.yaml
 gdacs: !include integrations/gdacs.yaml
 telegram_bot: !include integrations/telegram.yaml
-pi_hole: !include integrations/pi-hole.yaml
 spotify: !include integrations/spotify.yaml
 logger: !include logger.yaml
 tts: !include integrations/tts.yaml
-mqtt: !include integrations/mqtt.yaml
+upnp: !include integrations/upnp.yaml
 
 script: !include_dir_merge_named scripts
 alert: !include_dir_merge_named alerts
@@ -161,7 +171,9 @@ sensor: !include_dir_merge_list entities/sensors
 binary_sensor: !include_dir_merge_list entities/binary-sensors
 shell_command: !include_dir_merge_list shell_commands
 notify: !include_dir_merge_list entities/notifiers
-camera: !include_dir_merge_list entities/cameras
+device_tracker: !include_dir_merge_list entities/device_trackers
+media_player: !include_dir_merge_list entities/mediaplayers
+# camera: !include_dir_merge_list entities/cameras
 
 
 input_boolean: !include_dir_merge_named entities/input_booleans

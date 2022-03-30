@@ -2,7 +2,11 @@ title: K9B
 
 views:
   - !include lovelace-system/server.yaml
+  - !include lovelace-system/rpis.yaml
   - !include lovelace-system/certificates.yaml
+  - !include lovelace-system/hosts.yaml
+  - !include lovelace-system/vpn.yaml
+  - !include lovelace-system/domains.yaml
 
 background: var(--background-image)
 

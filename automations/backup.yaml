@@ -10,7 +10,7 @@
       weekday:
         - fri
   action:
-    - service: hassio.snapshot_full
+    - service: hassio.backup_full
       data_template:
         name: Automated backup {{ now().strftime('%Y-%m-%d') }} running HA version {{ states('sensor.ha_installed_version') }}
     - service: notify.telegram_viktor

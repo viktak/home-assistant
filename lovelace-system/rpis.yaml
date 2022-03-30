@@ -1,0 +1,107 @@
+title: RPis
+icon: mdi:raspberry-pi
+cards:
+
+###################################################################################
+#   Pi-Hole
+###################################################################################
+
+  - type: entities
+    title: Pi-Hole
+    show_header_toggle: false
+    entities:
+      - entity: sensor.pihole_hostname
+        name: Hostname
+      - entity: sensor.pihole_time_stamp
+        name: Time stamp
+      - entity: sensor.pihole_model
+        name: Model
+      - entity: sensor.pihole_architecture
+        name: Architecture
+      - entity: sensor.pihole_uptime
+        name: Uptime
+      - entity: sensor.pihole_load1
+        name: Load (1 min)
+      - entity: sensor.pihole_load5
+        name: Load (5 min)
+      - entity: sensor.pihole_load15
+        name: Load (15 min)
+      - entity: sensor.pihole_lastupdated
+        name: Last updated
+      - entity: sensor.pihole_number_of_cpus
+        name: CPU(s)
+      - entity: sensor.pihole_cores_per_socket
+        name: Cores/Socket
+      - entity: sensor.pihole_threads_per_core
+        name: Threads/Core
+      - entity: sensor.pihole_os
+        name: OS
+      - entity: sensor.pihole_temperature
+        name: CPU temperature
+      - entity: sensor.pihole_total_memory
+        name: Total memory
+      - entity: sensor.pihole_free_memory
+        name: Free memory
+      - entity: sensor.pihole_total_disk_space
+        name: Disk size
+      - entity: sensor.pihole_disk_free_space
+        name: Free disk space
+      - entity: sensor.pihole_total_swap
+        name: Swap size
+      - entity: sensor.pihole_free_swap
+        name: Free swap size
+      - entity: sensor.pihole_ipaddress
+        name: IP address
+
+
+###################################################################################
+#   SpotiPi
+###################################################################################
+
+  - type: entities
+    title: Office Media Center (MC3)
+    show_header_toggle: false
+    entities:
+      - entity: sensor.office_media_center_hostname
+        name: Hostname
+      - entity: sensor.office_media_center_time_stamp
+        name: Time stamp
+      - entity: sensor.office_media_center_model
+        name: Model
+      - entity: sensor.office_media_center_architecture
+        name: Architecture
+      - entity: sensor.office_media_center_uptime
+        name: Uptime
+      - entity: sensor.office_media_center_load1
+        name: Load (1 min)
+      - entity: sensor.office_media_center_load5
+        name: Load (5 min)
+      - entity: sensor.office_media_center_load15
+        name: Load (15 min)
+      - entity: sensor.office_media_center_lastupdated
+        name: Last updated
+      - entity: sensor.office_media_center_number_of_cpus
+        name: CPU(s)
+      - entity: sensor.office_media_center_cores_per_socket
+        name: Cores/Socket
+      - entity: sensor.office_media_center_threads_per_core
+        name: Threads/Core
+      - entity: sensor.office_media_center_os
+        name: OS
+      - entity: sensor.office_media_center_temperature
+        name: CPU temperature
+      - entity: sensor.office_media_center_total_memory
+        name: Total memory
+      - entity: sensor.office_media_center_free_memory
+        name: Free memory
+      - entity: sensor.office_media_center_total_disk_space
+        name: Disk size
+      - entity: sensor.office_media_center_disk_free_space
+        name: Free disk space
+      - entity: sensor.office_media_center_total_swap
+        name: Swap size
+      - entity: sensor.office_media_center_free_swap
+        name: Free swap size
+      - entity: sensor.office_media_center_ipaddress
+        name: IP address
+      

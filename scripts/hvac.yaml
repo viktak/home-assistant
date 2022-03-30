@@ -2,35 +2,35 @@
 #       Viktor's office AC
 #########################################################################
 
-viktors_office_ac_heating_on:
+office_ac_heating_on:
   sequence:
     - service: mqtt.publish
       data:
-        topic: "viktak/spiti/viktorsofficeir/cmnd"
+        topic: "viktak/spiti/officeir/cmnd"
         payload: '{"TOYOTOMI_CAR_27PAUN":"on"}'
     - service: timer.start
       data_template:
-        entity_id: timer.hvac_viktors_office
+        entity_id: timer.hvac_office
         duration: "01:00:00"
       
 
-viktors_office_ac_cooling_on:
+office_ac_cooling_on:
   sequence:
     - service: mqtt.publish
       data:
-        topic: "viktak/spiti/viktorsofficeir/cmnd"
-        payload: '{"TOYOTOMI_CAR_27PAUN":"on"}'
+        topic: "viktak/spiti/officeir/cmnd"
+        payload: '{"TOYOTOMI_CAR_27PAUN":"ON_COOL"}'
     - service: timer.start
       data_template:
-        entity_id: timer.hvac_viktors_office
+        entity_id: timer.hvac_office
         duration: "01:00:00"
   
-viktors_office_ac_off:
+office_ac_off:
   sequence:
     - service: mqtt.publish
       data:
-        topic: "viktak/spiti/viktorsofficeir/cmnd"
+        topic: "viktak/spiti/officeir/cmnd"
         payload: '{"TOYOTOMI_CAR_27PAUN":"off"}'
     - service: timer.finish
       data_template:
-        entity_id: timer.hvac_viktors_office
+        entity_id: timer.hvac_office

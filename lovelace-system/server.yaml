@@ -50,19 +50,19 @@ cards:
 
           - type: divider
 
-          - entity: sensor.ha_installed_version
+          - entity: sensor.current_version
             name: Core
             icon: mdi:home-assistant
             type: custom:multiple-entity-row
             show_state: false
             entities:
-              - entity: sensor.ha_installed_version
+              - entity: sensor.current_version
                 name: Installed
               - entity: sensor.core_version_latest
                 name: Latest
                 tap_action:
                   action:  navigate
-                  navigation_path :  /hassio/dashboard
+                  navigation_path :  /hassio/update-available/core
             card_mod:
             # style: |
             #   {% if states('binary_sensor.updater') == "on" %}
@@ -90,7 +90,7 @@ cards:
                 name: Latest
                 tap_action:
                   action: navigate
-                  navigation_path: /hassio/dashboard
+                  navigation_path: hassio/update-available/supervisor
             card_mod:
             style: |
               {% if states('binary_sensor.updater_supervisor') == "on" %}
@@ -136,6 +136,17 @@ cards:
           - entity: sensor.home_assistant_log
             name: Log
             icon: mdi:history
+
+
+
+###################################################################################
+#   Printer
+###################################################################################
+  - type: vertical-stack
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.samsung_ml_2525w_toner_black
 
 
 ###################################################################################

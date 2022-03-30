@@ -121,4 +121,3 @@ cards:
           extrema: true
         entities:
           - entity: sensor.owm_pollution_sulphur_dioxide_so2
-

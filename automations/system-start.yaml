@@ -13,7 +13,7 @@
         entity_id: timer.watchdog_pi_hole
         duration: '00:15:00'
 
-    - service: script.viktors_office_ac_off
+    - service: script.office_ac_off
 
     - service: mqtt.publish
       data:

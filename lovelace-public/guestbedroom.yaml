@@ -12,7 +12,7 @@ cards:
   - type: entities
     title:  Lights
     entities:
-      - entity: light.ceiling_light_in_guest_bedroom
+      - entity: light.guest_bedroom_ceiling_light
         name: Ceiling light
 
   - type: entities

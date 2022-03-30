@@ -2,7 +2,7 @@ watchdog_pi_hole:
 
 low_disk_space_pi_hole:
 
-random_light_viktor_s_office:
+random_light_office:
 
 random_light_bedroom:
 
@@ -13,7 +13,5 @@ window_open_bedroom:
 
 
 
-hvac_viktors_office:
-
-boiler_viktors_office:
-
+hvac_office:
+  name: Timer

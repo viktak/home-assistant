@@ -1,0 +1,36 @@
+title: VPN
+icon: mdi:vpn
+
+type: custom:layout-card
+layout_type: custom:masonry-layout
+layout:
+  width: 500
+
+cards:
+  - type: custom:list-card
+    entity: sensor.vpnclients
+    title: VPN clients
+    feed_attribute: clients
+    columns:
+      - title: Name
+        field: field1
+      - title: Virtual IP
+        field: field3
+        style:
+          - text-align: center
+      - title: Remote IP
+        field: field2
+        style:
+          - text-align: center
+      - title: Bytes received
+        field: field4
+        style:
+          - text-align: center
+      - title: Bytes sent
+        field: field5
+        style:
+          - text-align: center
+      - title: Connected since
+        field: field6
+        style:
+          - text-align: center

@@ -7,5 +7,6 @@
 # Log Severities: notset, debug, info, warn, warning, error, fatal, critical
 
 default: error
-# logs:
-#   homeassistant.core: error
+logs:
+  custom_components.openweathermap_all: debug
+  custom_components.abalin_nameday: debug

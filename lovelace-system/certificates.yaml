@@ -69,14 +69,14 @@ cards:
         card_mod:
         style: |
           #states > bar-card-row:nth-child(1) > bar-card-card:nth-child(1) > bar-card-background:nth-child(2) > bar-card-contentbar:nth-child(3) > bar-card-value:nth-child(2) {
-          {% if states('sensor.certificate_radionefeli_com') | int < 15 %}
+          {% if states('sensor.certificate_yankele_hu') | int < 15 %}
             color: #bf4040;
-          {% elif states('sensor.certificate_radionefeli_com') | int < 30 %}
+          {% elif states('sensor.certificate_yankele_hu') | int < 30 %}
             color: yellow;
           {% else %}
           {% endif %}
           }
         entities:
-          - entity: sensor.certificate_radionefeli_com
-            name: radionefeli.com
+          - entity: sensor.certificate_yankele_hu
+            name: yankele.hu
 

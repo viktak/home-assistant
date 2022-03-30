@@ -1,0 +1,26 @@
+title: System
+icon: mdi:clock
+cards:
+
+###################################################################################
+#   diy.viktak.com
+###################################################################################
+
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.ping_diy_viktak_com
+            height: 20
+            line_width: 2
+            font_size: 70
+            hours_to_show: 24
+            points_per_hour: 2.1
+            hour24: true
+            show:
+              extrema: true
+              fill: true
+              graph: bar
+
