@@ -7,18 +7,25 @@ layout:
   width: 500
 
 cards:
-  - type: custom:list-card
-    entity: sensor.hostnames
-    title: Hostnames
-    feed_attribute: hosts
-    columns:
-      - title: Hostname
-        field: field4
-      - title: IP Address
-        field: field3
-        style:
-          - text-align: center
-      - title: MAC Address
-        field: field2
-        style:
-          - text-align: center
+  - type: 'custom:config-template-card'
+    variables:
+      - '''Network hosts as of '''
+      - states['sensor.hostnames'].attributes.lastUpdated
+    entities:
+      - sensor.hostnames
+    card:
+      type: custom:list-card
+      entity: sensor.hostnames
+      title: '${vars[0] + vars[1]}'
+      feed_attribute: hosts
+      columns:
+        - title: Hostname
+          field: field4
+        - title: IP Address
+          field: field3
+          style:
+            - text-align: center
+        - title: MAC Address
+          field: field2
+          style:
+            - text-align: center
