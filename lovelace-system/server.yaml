@@ -1,10 +1,9 @@
 title: System
 icon: mdi:chart-line
 cards:
-
-###################################################################################
-#   Server
-###################################################################################
+  ###################################################################################
+  #   Server
+  ###################################################################################
 
   - type: vertical-stack
     cards:
@@ -19,7 +18,7 @@ cards:
           - entity: sensor.disk_free
             name: Free disk space
             icon: mdi:file-swap
-      
+
       - type: custom:bar-card
         mode: horizontal
         positions:
@@ -35,10 +34,9 @@ cards:
           - entity: sensor.swap_use_percent
             name: Swap
 
-
-###################################################################################
-#   Home Assistant
-###################################################################################
+  ###################################################################################
+  #   Home Assistant
+  ###################################################################################
 
   - type: vertical-stack
     cards:
@@ -61,22 +59,15 @@ cards:
               - entity: sensor.core_version_latest
                 name: Latest
                 tap_action:
-                  action:  navigate
-                  navigation_path :  /hassio/update-available/core
+                  action: navigate
+                  navigation_path: /hassio/update-available/core
             card_mod:
-            # style: |
-            #   {% if states('binary_sensor.updater') == "on" %}
-            #   div.entity:nth-child(2) > div:nth-child(2) {
-            #     color: yellow;
-            #   }
-            #   {% endif %}
             style: |
-              {% if states('sensor.core_version_latest') > states('sensor.current_version') %}
+              {% if states('update.home_assistant_core_update') == 'on' %}
               div.entity:nth-child(2) > div:nth-child(2) {
                 color: yellow;
               }
               {% endif %}
-                    
 
           - entity: sensor.supervisor_updates
             name: Supervisor
@@ -112,7 +103,7 @@ cards:
             tap_action:
               action: navigate
               navigation_path: /hassio/dashboard
-          - entity: sensor.hacs_number_of_updates_available
+          - entity: sensor.hacs
             name: HACS
             icon: mdi:contacts
             card_mod:
@@ -126,32 +117,28 @@ cards:
               action: navigate
               navigation_path: /hacs/entry
 
-
           - type: divider
 
-          - entity: sensor.home_assistant_v2_db
+          - entity: sensor.home_assistant_v2_db_size
             name: Database
             icon: mdi:database
 
-          - entity: sensor.home_assistant_log
+          - entity: sensor.home_assistant_log_size
             name: Log
             icon: mdi:history
 
-
-
-###################################################################################
-#   Printer
-###################################################################################
+  ###################################################################################
+  #   Printer
+  ###################################################################################
   - type: vertical-stack
     cards:
       - type: entities
         entities:
           - entity: sensor.samsung_ml_2525w_toner_black
 
-
-###################################################################################
-#   Internet
-###################################################################################
+  ###################################################################################
+  #   Internet
+  ###################################################################################
 
   - type: vertical-stack
     cards:
@@ -188,13 +175,6 @@ cards:
             color_thresholds:
               - value: 20
                 color: "#bf4040"
-            hold_action:
-              action: 
-                service: persistent_notification.create
-                data:
-                  title: "Internet speed"
-                  message: "Checking your internet speed now. The values will be updated shortly."
-
 
           - type: custom:mini-graph-card
             entities:
@@ -211,5 +191,3 @@ cards:
             color_thresholds:
               - value: 5
                 color: "#bf4040"
-  
-

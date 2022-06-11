@@ -9,35 +9,37 @@ layout:
 cards:
   - type: 'custom:config-template-card'
     variables:
-      - '''Connected clients as of '''
+      - states['sensor.vpnclients'].state
+      - ''' Clients as of '''
       - states['sensor.vpnclients'].attributes.lastUpdated
+
     entities:
       - sensor.vpnclients
     card:
       type: custom:list-card
       entity: sensor.vpnclients
-      title: '${vars[0] + vars[1]}'
+      title: '${ vars[0] + vars[1] + vars[2] }'
       feed_attribute: clients
       columns:
         - title: Name
-          field: field1
+          field: Name
         - title: Virtual IP
-          field: field3
+          field: VirtualIP
           style:
             - text-align: center
         - title: Remote IP
-          field: field2
+          field: RemoteIP
           style:
             - text-align: center
         - title: Bytes received
-          field: field4
+          field: BytesReceived
           style:
             - text-align: center
         - title: Bytes sent
-          field: field5
+          field: BytesSent
           style:
             - text-align: center
         - title: Connected since
-          field: field6
+          field: ConnectedSince
           style:
             - text-align: center

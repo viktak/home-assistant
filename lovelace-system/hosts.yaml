@@ -9,14 +9,15 @@ layout:
 cards:
   - type: 'custom:config-template-card'
     variables:
-      - '''Network hosts as of '''
+      - states['sensor.hostnames'].state
+      - ''' DHCP clients as of '''
       - states['sensor.hostnames'].attributes.lastUpdated
     entities:
       - sensor.hostnames
     card:
       type: custom:list-card
       entity: sensor.hostnames
-      title: '${vars[0] + vars[1]}'
+      title: '${ vars[0] + vars[1] + vars[2] }'
       feed_attribute: hosts
       columns:
         - title: Hostname
@@ -27,5 +28,26 @@ cards:
             - text-align: center
         - title: MAC Address
           field: field2
+          style:
+            - text-align: center
+
+
+  - type: 'custom:config-template-card'
+    variables:
+      - states['sensor.hostnames_spiti'].state
+      - ''' Network Hosts as of '''
+      - states['sensor.hostnames_spiti'].attributes.lastUpdated
+    entities:
+      - sensor.hostnames_spiti
+    card:
+      type: custom:list-card
+      entity: sensor.hostnames_spiti
+      title: '${ vars[0] + vars[1] + vars[2] }'
+      feed_attribute: hosts
+      columns:
+        - title: Hostname
+          field: HostName
+        - title: IP Address
+          field: IPAddress
           style:
             - text-align: center

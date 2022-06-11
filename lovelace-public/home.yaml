@@ -4,27 +4,24 @@ cards:
 ######################################
 # Problems
 ######################################
-  - type: entity-filter
-    show_empty: false
-    entities:
-      - entity: sensor.home_assistant_ssl_certificate
-    state_filter:
-      - operator: "<"
-        value: "30"
-    card:
-      show_state: false
-      title: Expiring certificates
+  # - type: entity-filter
+  #   show_empty: false
+  #   entities:
+  #     - entity: sensor.home_assistant_ssl_certificate
+  #   state_filter:
+  #     - operator: "<"
+  #       value: "30"
+  #   card:
+  #     show_state: false
+  #     title: Expiring certificates
  
   - type: entity-filter
     show_empty: false
     entities:
-      - entity: sensor.pihole
-      - entity: sensor.home_assistant_ssl_certificate
       - entity: sensor.hall_sensor_living_room
       - entity: sensor.hall_sensor_bedroom
       - entity: sensor.hall_sensor_office
       - entity: sensor.hall_sensor_guest_bedroom
-      - entity: sensor.fws
 
       - entity: sensor.pir_viktors_office
         name: Motion sensor in Viktor's office
@@ -41,8 +38,8 @@ cards:
 
       - entity: sensor.house_lights
       # - entity: switch.kalorifer_sonoff_basic
-      - entity: switch.staircase_light
-      - entity: switch.office_boiler
+      # - entity: switch.staircase_light
+      # - entity: switch.office_boiler
       # - entity: sensor.washing_machine
 
 
@@ -51,7 +48,9 @@ cards:
       # - entity: switch.living_room_ceiling_lights_3
       # - entity: switch.living_room_ceiling_lights_4
 
-      - entity: light.ceiling_light_in_viktor_s_office
+      - entity: sensor.living_room_wifi_ir
+
+      - entity: light.office_ceiling_light
       - entity: light.ceiling_light_in_bedroom
       - entity: light.ceiling_lamp_guest_bedroom
 
@@ -141,8 +140,8 @@ cards:
   - type: entity-filter
     show_empty: false
     entities:
-      - entity: device_tracker.victoria_xiaomiredminote8
-      - entity: device_tracker.viktor_op3
+      - entity: device_tracker.victoria_redminote8_xiaomiredminote8
+      - entity: device_tracker.viktor_op3_op3
     state_filter:
       - home
     card:
@@ -155,15 +154,15 @@ cards:
   - type: entity-filter
     show_empty: false
     entities:
-      - entity: switch.living_room_ceiling_lights_1
-      - entity: switch.living_room_ceiling_lights_2
-      - entity: switch.living_room_ceiling_lights_3
-      - entity: switch.living_room_ceiling_lights_4
+      # - entity: switch.living_room_ceiling_lights_1
+      # - entity: switch.living_room_ceiling_lights_2
+      # - entity: switch.living_room_ceiling_lights_3
+      # - entity: switch.living_room_ceiling_lights_4
       - entity: light.office_ceiling_light
       - entity: light.ceiling_lamp_bedroom
       - entity: light.guest_bedroom_ceiling_light
-      - entity: switch.staircase_light
-      - entity: switch.entrance_light
+      - entity: sensor.entrance_light
+      - entity: sensor.staircase_lights
     state_filter:
       - "on"
     card:
@@ -220,20 +219,20 @@ cards:
 
 
 # Boilers
-  - type: entity-filter
-    show_empty: false
-    entities:
-      - entity: switch.office_boiler
-        name: Office
-        show_last_changed: true
-        tap_action:
-          action: toggle
-    state_filter:
-      - "on"
-    card:
-      type: glance
-      title: Boilers
-      show_state: false
+  # - type: entity-filter
+  #   show_empty: false
+  #   entities:
+  #     - entity: switch.office_boiler
+  #       name: Office
+  #       show_last_changed: true
+  #       tap_action:
+  #         action: toggle
+  #   state_filter:
+  #     - "on"
+  #   card:
+  #     type: glance
+  #     title: Boilers
+  #     show_state: false
 
 
 # Temperatures

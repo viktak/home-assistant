@@ -7,6 +7,7 @@ views:
   - !include lovelace-system/hosts.yaml
   - !include lovelace-system/vpn.yaml
   - !include lovelace-system/domains.yaml
+  - !include lovelace-system/watchman.yaml
 
 background: var(--background-image)
 

@@ -1,0 +1,9 @@
+title: K9B
+
+views:
+  - !include lovelace-clients/dergabor.yaml
+  - !include lovelace-clients/evaggelitsa.yaml
+  - !include lovelace-clients/filler.yaml
+
+background: var(--background-image)
+

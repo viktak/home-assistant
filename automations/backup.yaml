@@ -12,10 +12,10 @@
   action:
     - service: hassio.backup_full
       data_template:
-        name: Automated backup {{ now().strftime('%Y-%m-%d') }} running HA version {{ states('sensor.ha_installed_version') }}
+        name: Automated backup {{ now().strftime('%Y-%m-%d') }} running HA version {{ states('sensor.current_version') }}
     - service: notify.telegram_viktor
       data_template:
         title: Scheduled Hass.io backup
-        message: Backup {{ now().strftime('%Y-%m-%d') }} running HA version {{ states('sensor.ha_installed_version')}} is being generated.
+        message: Backup {{ now().strftime('%Y-%m-%d') }} running HA version {{ states('sensor.current_version')}} is being generated.
 
 

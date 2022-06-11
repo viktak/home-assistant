@@ -7,7 +7,7 @@
 ha_update_available:
   name: HA has an update
   # entity_id: binary_sensor.core
-  entity_id: binary_sensor.updater
+  entity_id: update.home_assistant_core_update
   state: 'on'
   can_acknowledge: false
   repeat: 
@@ -16,8 +16,8 @@ ha_update_available:
   skip_first: true
   title: Update available for Core 
   message: |
-    A new update is available: {{ state_attr('binary_sensor.updater', 'newest_version') }}
-    Currently on {{ states('sensor.ha_installed_version') }}
+    A new update is available: {{ state_attr('update.home_assistant_core_update', 'latest_version') }}
+    Currently on {{ state_attr('update.home_assistant_core_update', 'installed_version') }}
     Compatibility check results: http://192.168.1.99:8123/hassio/addon/core\_check\_config/logs
     Release notes:
     {{ state_attr('sensor.home_assistant_latest_release', 'release-notes') }}

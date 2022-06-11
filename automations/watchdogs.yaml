@@ -62,37 +62,3 @@
         title: Node online
         message: 'Connection with house lights is OK.'
 
-
-
-
-
-#########################################################################################
-######################## TEST ###########################################################
-#########################################################################################
-- alias: "Send alert when XXX goes offline"
-  trigger:
-  - entity_id: sensor.esp_development_203
-    platform: state
-  condition:
-    - condition: state
-      entity_id: "sensor.esp_development_203"
-      state: "offline"
-  action:
-    - service: notify.telegram_viktor
-      data:
-        title: Node offline
-        message: 'Lost connection with ESP-203'
-
-- alias: "Send alert when XXX goes online"
-  trigger:
-  - entity_id: sensor.esp_development_203
-    platform: state
-  condition:
-    - condition: state
-      entity_id: "sensor.esp_development_203"
-      state: "online"
-  action:
-    - service: notify.telegram_viktor
-      data:
-        title: Node online
-        message: 'Found connection with ESP-203'

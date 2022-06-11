@@ -87,6 +87,9 @@ lovelace:
     - url: /hacsfiles/lovelace-layout-card/layout-card.js
       type: module
 
+    - url: /hacsfiles/banner-card/banner-card.js
+      type: module
+                
                 
   dashboards:
     lovelace-admin:
@@ -113,6 +116,14 @@ lovelace:
       show_in_sidebar: true
       require_admin: false
 
+    lovelace-clients:
+      mode: yaml
+      filename: ui-clients.yaml
+      title: Clients
+      icon: mdi:account-multiple
+      show_in_sidebar: true
+      require_admin: false
+
 
 
 
@@ -128,8 +139,6 @@ lovelace:
 default_config:
 
 wake_on_lan:
-
-sun:
 
 python_script:    
 
@@ -159,7 +168,6 @@ telegram_bot: !include integrations/telegram.yaml
 spotify: !include integrations/spotify.yaml
 logger: !include logger.yaml
 tts: !include integrations/tts.yaml
-upnp: !include integrations/upnp.yaml
 
 script: !include_dir_merge_named scripts
 alert: !include_dir_merge_named alerts

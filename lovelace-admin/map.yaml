@@ -4,9 +4,9 @@ panel: true
 cards:
   - type: map
     entities:
-      - entity: device_tracker.victoria_xiaomiredminote8
+      - entity: device_tracker.victoria_redminote8_xiaomiredminote8
         name: Vic
-      - entity: device_tracker.viktor_op3
+      - entity: device_tracker.viktor_op3_op3
         name: Vik
-      - entity: device_tracker.bernadett_galaxya5
+      - entity: device_tracker.bernadett_mate10
         name: Bernadett

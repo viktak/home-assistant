@@ -1,15 +1,15 @@
 title: Under development
 icon: mdi:developer-board
 cards:
-  - type: entities
-    title: RGBW light
-    entities:
-      - type: custom:slider-entity-row
-        entity: light.fws_v2_red
-        name: Red
-        hide_when_off: false
-        toggle: true
-        min: 0
-        max: 1023
+  # - type: entities
+  #   title: RGBW light
+  #   entities:
+      # - type: custom:slider-entity-row
+      #   entity: light.fws_v2_red
+      #   name: Red
+      #   hide_when_off: false
+      #   toggle: true
+      #   min: 0
+      #   max: 1023
     
 

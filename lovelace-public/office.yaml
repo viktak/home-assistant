@@ -57,13 +57,23 @@ cards:
 #   Boiler
 ###################################################################################
 
-  - type: entities
-    title: Boiler
-    show_header_toggle: false
-    entities:
-      - entity: switch.office_boiler
-        name: Boiler
+  # - type: entities
+  #   title: Boiler
+  #   show_header_toggle: false
+  #   entities:
+  #     - entity: switch.office_boiler
+  #       name: Boiler
         
+
+###################################################################################
+#   Printer
+###################################################################################
+  - type: vertical-stack
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.samsung_ml_2525w_toner_black
+
 
 ###################################################################################
 #   Lights
@@ -96,7 +106,7 @@ cards:
 
   - type: media-control
     entity: media_player.mc3
-    name: MC3
+    name: Chopin
 
   # - type: media-control
   #   entity: media_player.office_media_center_upnp_av

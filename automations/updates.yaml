@@ -5,7 +5,7 @@
   description: Starts the check config addon when an update becomes available
   trigger:
     - platform: state
-      entity_id: binary_sensor.updater
+      entity_id: update.home_assistant_core_update
       #entity_id: binary_sensor.core_updated
       to: "on"
   condition: []

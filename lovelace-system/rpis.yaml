@@ -59,7 +59,7 @@ cards:
 ###################################################################################
 
   - type: entities
-    title: Office Media Center (MC3)
+    title: Office Media Center (Chopin)
     show_header_toggle: false
     entities:
       - entity: sensor.office_media_center_hostname
